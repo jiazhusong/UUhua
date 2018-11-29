@@ -5,7 +5,7 @@
 */
 <template>
     <div>
-      <x-header style='text-align: center;background: #ff9000;line-height: 50px;color: #fff'>用户主页</x-header>
+      <x-header style='text-align: center;background: #e83632;line-height: 50px;color: #fff'>用户主页</x-header>
       <div style='margin-top: 20px;padding: 0 30px'>
         <div style='border: 1px solid #ccc;padding: 20px 10px;box-shadow:0 0 10px #ccc '>
           <img height='50' src="../../../static/user.png" alt="">

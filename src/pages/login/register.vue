@@ -5,7 +5,7 @@
 */
 <template>
   <div class='apps'>
-    <x-header style='text-align: center;background: #ff9000;line-height: 50px;color: #fff'>用户注册</x-header>
+    <x-header style='text-align: center;background:  rgb(171, 38, 35);line-height: 50px;color: #fff'>用户注册</x-header>
     <div style='text-align: center'><img height='100' src="../../../static/register.png" alt=""></div>
     <div style='padding: 0 30px'>
       <group>
@@ -26,17 +26,17 @@
         <!--</x-input>-->
         <x-input   placeholder='请输入手机验证码' title="发送验证码" class="weui-vcode" v-model='phoneCode' :show-clear=false ref='phoneCode' required>
           <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont  icon-yanzhengma1"  ></i>
-          <x-button slot="right" type="primary"  :disabled='codeBtn!="发送验证码"'  @click.native='sendCodeFun' mini >{{codeBtn}}</x-button>
+          <x-button slot="right" type="primary" style='background: rgb(138, 7, 7)'  :disabled='codeBtn!="发送验证码"'  @click.native='sendCodeFun' mini >{{codeBtn}}</x-button>
         </x-input>
         <div style='height:1px;background: #D9D9D9; '></div>
-        <x-button style='margin-top: 20px;' type="primary" @click.native='registerFun'>注册</x-button>
+        <x-button style='margin-top: 20px;background: rgb(210, 5, 5);' type="primary" @click.native='registerFun'>注册</x-button>
       </group>
       <div v-transfer-dom>
         <alert v-model="show"  @on-show="onShow" @on-hide="onHide"> {{msg}}</alert>
       </div>
       <toast v-model="showPositionValue" type="text" :time="1000" is-show-mask :text="showMsg" position="middle"></toast>
       <div style='margin-top: 20px;'>
-        如果您已经拥有账号,请点击<router-link to='/'> <x-button style='' type="primary" mini  >登录</x-button></router-link>
+        如果您已经拥有账号,请点击<router-link to='/'> <x-button style='background: rgb(210, 5, 5)' type="primary" mini  >登录</x-button></router-link>
 
       </div>
     </div>

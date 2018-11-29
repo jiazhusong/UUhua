@@ -1,6 +1,6 @@
 <template>
     <div>
-      <x-header  style='text-align: center;background: #ff9000;line-height: 50px;color: #fff'>用户登录</x-header>
+      <x-header  style='text-align: center;background: rgb(171, 38, 35);line-height: 50px;color: #fff'>用户登录</x-header>
       <div style='text-align: center;margin-top: 10px;'><img src="../../../static/logo2.png" height='130' alt=""></div>
 
       <div style='padding: 0 30px'>
@@ -16,7 +16,7 @@
             <!--<img slot="right-full-height" @click='imgClick' :src="imgUrl">-->
           <!--</x-input>-->
          <div style='height:1px;background: #D9D9D9; '></div>
-          <x-button style='margin-top: 20px;' type="primary" @click.native='loginFun'>登录</x-button>
+          <x-button style='margin-top: 20px;background: rgb(210, 5, 5)' type="primary" @click.native='loginFun'>登录</x-button>
         </group>
         <div class='parent-box'>
           <router-link  to='/register'>注册</router-link>
