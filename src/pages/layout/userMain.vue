@@ -9,8 +9,13 @@
       <div style='margin-top: 20px;padding: 0 30px'>
         <div style='border: 1px solid #ccc;padding: 20px 10px;box-shadow:0 0 10px #ccc '>
           <img height='50' src="../../../static/user.png" alt="">
-          <span style='vertical-align: top'>欢迎：</span>
-          <span style='vertical-align: top'>{{account}}</span>
+          <div style='display: inline-block'>
+            <span style=''>欢迎来到 <span style='font-size: 18px;color: rgb(17, 139, 247)'>UU花</span></span>
+            <br/>
+            <span style=''>账号：</span>
+            <span style=''>{{account}}</span>
+          </div>
+
         </div>
         <div style='border: 1px solid #ccc'>
           <group>
@@ -20,9 +25,9 @@
             <cell is-link title="申请记录 " link='/applicationRecord'>
               <img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/applicationRecord.png">
             </cell>
-            <cell is-link title="账单查询 " link="/recordQuery">
-              <img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/billQuery.png">
-            </cell>
+            <!--<cell is-link title="账单查询 " link="/recordQuery">-->
+              <!--<img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/billQuery.png">-->
+            <!--</cell>-->
             <cell is-link title="修改密码 " link="/resetpass">
               <img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/editpass1.png">
             </cell>
@@ -33,10 +38,14 @@
           </group>
         </div>
       </div>
-      <tabbar>
+      <tabbar class='foot'>
         <tabbar-item link="/layout">
           <i slot="icon" class='iconfont icon-yemian-copy'></i>
           <span slot="label">首页</span>
+        </tabbar-item>
+        <tabbar-item link="/recordQuery">
+          <i slot="icon" class='iconfont icon-zhangdan'></i>
+          <span slot="label">账单查询</span>
         </tabbar-item>
         <tabbar-item selected link="/userlayout">
           <i slot="icon" class='iconfont icon-wodedangxuan'></i>
@@ -123,7 +132,5 @@
 </script>
 
 <style scoped lang='less'>
-  .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon > i, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label{
-    background:rgb(89, 92, 204) ;
-  }
+
 </style>

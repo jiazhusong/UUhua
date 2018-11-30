@@ -5,14 +5,14 @@
 */
 <template>
     <div >
-      <x-header style='text-align: center;background: #ff9000;line-height: 50px;color: #fff'>我的资料</x-header>
-      <div  style='margin-bottom: 60px; '>
+      <x-header style='text-align: center;background: rgb(89, 92, 204);;line-height: 50px;color: #fff'>我的资料</x-header>
+      <div  style='margin-bottom: 60px;margin-top: 10px; '>
         <div>
-          <tab>
-            <tab-item selected @on-item-click="onItemClick">基本信息</tab-item>
-            <tab-item @on-item-click="onItemClick">银行卡信息</tab-item>
-            <tab-item @on-item-click="onItemClick">工作信息</tab-item>
-          </tab>
+          <button-tab v-model="showNum">
+            <button-tab-item  @on-item-click="onItemClick()">基本信息</button-tab-item>
+            <button-tab-item @on-item-click="onItemClick()">银行卡信息</button-tab-item>
+            <button-tab-item @on-item-click="onItemClick()">工作信息</button-tab-item>
+          </button-tab>
         </div>
         <div v-show='showNum==0' :style='{"max-height": maxHei}' style='overflow: auto'>
           <group ref='groups'>
@@ -131,6 +131,10 @@
           <i slot="icon" class='iconfont icon-yemian-copy'></i>
           <span slot="label">首页</span>
         </tabbar-item>
+        <tabbar-item link="/recordQuery">
+          <i slot="icon" class='iconfont icon-zhangdan'></i>
+          <span slot="label">账单查询</span>
+        </tabbar-item>
         <tabbar-item selected link="/userlayout">
           <i slot="icon" class='iconfont icon-wodedangxuan'></i>
           <span slot="label">我的</span>
@@ -144,7 +148,7 @@
 </template>
 
 <script>
-  import { XInput,Group,XButton,XHeader,Cell,Tabbar,TabbarItem,Tab,TabItem ,Radio,Alert,Loading , TransferDomDirective as TransferDom ,Toast   } from 'vux'
+  import { XInput,Group,XButton,XHeader,Cell,Tabbar,TabbarItem,ButtonTab, ButtonTabItem ,Radio,Alert,Loading , TransferDomDirective as TransferDom ,Toast   } from 'vux'
   // import Uploader from 'vux-uploader'
 
     export default {
@@ -160,8 +164,8 @@
           Cell,
           Tabbar,
           TabbarItem,
-          Tab,
-          TabItem,
+          ButtonTab,
+          ButtonTabItem,
           Radio,
           // Uploader,
           Alert,
@@ -257,8 +261,9 @@
          })
         },
         methods: {
-          onItemClick(value){
-            this.showNum=value;
+          onItemClick(){
+            console.log(this.showNum);
+            // this.showNum=value;
           },
 
           basicSubmit(){

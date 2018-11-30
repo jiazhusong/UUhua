@@ -5,12 +5,12 @@
 */
 <template>
   <div>
-    <x-header style='text-align: center;background: #ff9000;line-height: 50px;color: #fff'>修改密码</x-header>
+    <x-header style='text-align: center;background: rgb(89, 92, 204);line-height: 50px;color: #fff'>修改密码</x-header>
     <div style='text-align: center'><img src="../../../static/editPass.png" height='100' alt=""></div>
     <div style='padding: 0 30px'>
       <group>
         <x-input  placeholder="请输入手机号" is-type='china-mobile' required ref='phoneNum' v-model="phoneNum">
-          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"  class="iconfont icon-shouji"  ></i>
+          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"  class="iconfont icon-dianhuahaoma"  ></i>
         </x-input>
         <x-input  placeholder="请输入真实姓名" required ref='useName' v-model="useName">
           <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"  class="iconfont icon-zhenshixingming"  ></i>
@@ -21,7 +21,7 @@
           <!--<img slot="right-full-height" @click='imgFun' :src="imgUrl">-->
         <!--</x-input>-->
         <x-input placeholder='请输入短信验证码' required ref='phoneCode' v-model="phoneCode" phoneCode class="weui-vcode">
-          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont  icon-yanzhengma2"  ></i>
+          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont  icon-duanxinyanzhengma"  ></i>
           <x-button slot="right" type="primary" :disabled='codeBtn!="发送验证码"'  @click.native='sendCodeFun' mini >{{codeBtn}}</x-button>
         </x-input>
         <x-input  placeholder='请输入新密码' required v-model="password" :type='passwordType' ref='password'>
