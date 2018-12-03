@@ -7,7 +7,7 @@
     <div>
       <x-header style='text-align: center;background: rgb(89, 92, 204);line-height: 50px;color: #fff'>账单查询</x-header>
       <div :style='{"height":maxHei}'>
-
+        <!--<div style='text-align: right'><x-button @click.native='showTipFun' type="primary" style='width: 100px;margin-right: 0;margin:5px;' :mini=true>账单延期</x-button></div>-->
         <x-table  :cell-bordered="false" style="background-color:#fff;">
           <thead>
           <tr>
@@ -49,11 +49,14 @@
       <div v-transfer-dom>
         <loading :show="show2" text=""></loading>
       </div>
+      <div v-transfer-dom>
+        <alert v-model="show" > {{msg}}</alert>
+      </div>
     </div>
 </template>
 
 <script>
-  import {XHeader,Tabbar,TabbarItem ,XTable ,Toast,Loading,TransferDomDirective as TransferDom } from 'vux'
+  import {XHeader,Tabbar,TabbarItem ,XTable ,Toast,Loading,TransferDomDirective as TransferDom ,Alert,XButton} from 'vux'
     export default {
         name: "recordQuery",
       directives: {
@@ -65,7 +68,9 @@
           TabbarItem,
           XTable,
           Toast,
-          Loading
+          Loading,
+          Alert,
+          XButton
         },
         props: [],
       filters:{
@@ -87,6 +92,8 @@
               showPositionValue:false,
               popmsg:"",
               show2:false,
+              show:false,
+              msg:"",
             }
         },
         mounted() {
@@ -115,7 +122,13 @@
             }
           })
         },
-        methods: {}
+        methods: {
+          showTipFun(){
+            let vm=this;
+            vm.show=true;
+            vm.msg="如需延期，请联系管理员审核"
+          }
+        }
     }
 </script>
 
