@@ -5,7 +5,7 @@
 */
 <template>
     <div>
-      <x-header style='text-align: center;background: rgb(89, 92, 204);line-height: 50px;color: #fff'>首页</x-header>
+      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>首页</x-header>
       <div :style='{"height":maxHei}' style='overflow: auto'>
         <div style=''>
           <swiper :list="list" auto style="width:100%;margin:0 auto;" height="180px" dots-class="custom-bottom" dots-position="center"></swiper>

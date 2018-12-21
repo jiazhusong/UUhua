@@ -1,15 +1,15 @@
 <template>
     <div>
-      <x-header  style='text-align: center;background: rgb(89, 92, 204);line-height: 50px;color: #fff'>用户登录</x-header>
-      <div style='text-align: center;margin-top: 10px;'><img src="../../../static/logo2.png" height='130' alt=""></div>
+      <x-header  style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>用户登录</x-header>
+      <div style='text-align: center;margin-top: 10px;'><img src="../../../static/nianqian1logo.jpg" height='130' alt=""></div>
 
       <div style='padding: 0 30px'>
         <group>
           <x-input title="用户名：" placeholder="请输入用户名" v-model="useName" ref='useName' is-type='china-mobile'  required>
-            <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"  class="iconfont icon-denglu"  ></i>
+            <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"  class="iconfont icon-yonghu"  ></i>
           </x-input>
           <x-input title="密码：" type='password' placeholder='请输入密码' v-model="password" ref='password' required>
-            <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-mima"  ></i>
+            <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-icon-test"  ></i>
           </x-input>
           <!--<x-input  title="验证码" placeholder='请输入验证码' v-model="num" ref='num' required>-->
             <!--<i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-yanzhengma"  ></i>-->

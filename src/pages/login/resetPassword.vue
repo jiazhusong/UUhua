@@ -5,7 +5,7 @@
 */
 <template>
   <div>
-    <x-header style='text-align: center;background: rgb(89, 92, 204);line-height: 50px;color: #fff'>修改密码</x-header>
+    <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>修改密码</x-header>
     <div style='text-align: center'><img src="../../../static/editPass.png" height='100' alt=""></div>
     <div style='padding: 0 30px'>
       <group>
@@ -25,11 +25,11 @@
           <x-button slot="right" type="primary" :disabled='codeBtn!="发送验证码"'  @click.native='sendCodeFun' mini >{{codeBtn}}</x-button>
         </x-input>
         <x-input  placeholder='请输入新密码' required v-model="password" :type='passwordType' ref='password'>
-          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-mima"  ></i>
+          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-mima1"  ></i>
           <i slot="right" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-chakanmima"  @click='passwordTypeChange'></i>
         </x-input>
         <x-input  placeholder='确认新密码' required v-model="passwordAgin" :type='passwordAginType' ref='passwordAgin'>
-          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-mima"  ></i>
+          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-mima1"  ></i>
           <i slot="right" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-chakanmima"  @click='passwordAginTypeFun'></i>
 
         </x-input>

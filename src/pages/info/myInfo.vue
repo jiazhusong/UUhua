@@ -5,7 +5,7 @@
 */
 <template>
     <div >
-      <x-header style='text-align: center;background: rgb(89, 92, 204);;line-height: 50px;color: #fff'>我的资料</x-header>
+      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>我的资料</x-header>
       <div  style='margin-bottom: 60px;margin-top: 10px; '>
         <div>
           <button-tab v-model="showNum">

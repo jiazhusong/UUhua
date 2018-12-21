@@ -5,19 +5,19 @@
 */
 <template>
   <div class='apps'>
-    <x-header style='text-align: center;background:  rgb(89, 92, 204);line-height: 50px;color: #fff'>用户注册</x-header>
+    <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>用户注册</x-header>
     <div style='text-align: center'><img height='100' src="../../../static/register.png" alt=""></div>
     <div style='padding: 0 30px'>
       <group>
         <x-input title="用户名：" placeholder="请输入手机号" ref='phoneNum' :max=11 :show-clear=false is-type='china-mobile' v-model="phoneNum" required>
-          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"  class="iconfont icon-yonghu"  ></i>
+          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"  class="iconfont icon-shoujihao"  ></i>
         </x-input>
         <x-input title="密码：" :type='passwordType' ref='password' :min=6 :max=16 placeholder='请输入密码' :show-clear=false v-model="password" required>
-          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-mima"  ></i>
+          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-mima1"  ></i>
           <i slot="right" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-chakanmima"  @click='passwordTypeChange'></i>
         </x-input>
         <x-input title="密码："  placeholder='请再次输入密码' :min=6 :max=16 ref='passwordAgin' :show-clear=false :type='passwordAginType' v-model="passwordAgin" required>
-          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-mima"  ></i>
+          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-mima1"  ></i>
           <i slot="right" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-chakanmima"  @click='passwordAginTypeFun'></i>
         </x-input>
         <!--<x-input  title="验证码" placeholder='请输入验证码' v-model="verificationCode " :show-clear=false ref='verificationCode' required>-->
@@ -25,7 +25,7 @@
           <!--<img slot="right-full-height" :src="imgUrl" @click='imgFun'>-->
         <!--</x-input>-->
         <x-input   placeholder='请输入手机验证码' title="发送验证码" class="weui-vcode" v-model='phoneCode' :show-clear=false ref='phoneCode' required>
-          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont  icon-yanzhengma1"  ></i>
+          <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont  icon-yanzhengma"  ></i>
           <x-button slot="right" type="primary"   :disabled='codeBtn!="发送验证码"'  @click.native='sendCodeFun' mini >{{codeBtn}}</x-button>
         </x-input>
         <div style='height:1px;background: #D9D9D9; '></div>
