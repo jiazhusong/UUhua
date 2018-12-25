@@ -7,7 +7,7 @@
   <div>
     <x-header style='text-align: center;background: rgb(89, 92, 204);line-height: 50px;color: #fff'>申请记录</x-header>
     <div :style='{"height":maxHei}' style='overflow: auto;margin-bottom: 60px; '>
-      <div>逾期滞纳金：<span style='color: rgb(63, 33, 222)'>{{datas.length>0?datas[0].penalty:0}}</span></div>
+
       <x-table :cell-bordered="false"  style="background-color:#fff;">
         <thead>
         <tr>

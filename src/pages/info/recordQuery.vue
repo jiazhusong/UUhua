@@ -8,6 +8,7 @@
       <x-header style='text-align: center;background: rgb(89, 92, 204);line-height: 50px;color: #fff'>账单查询</x-header>
       <div :style='{"height":maxHei}'>
         <!--<div style='text-align: right'><x-button @click.native='showTipFun' type="primary" style='width: 100px;margin-right: 0;margin:5px;' :mini=true>账单延期</x-button></div>-->
+        <div>逾期滞纳金：<span style='color: rgb(63, 33, 222)'>{{datas.length>0?datas[0].penalty:0}}</span></div>
         <x-table  :cell-bordered="false" style="background-color:#fff;">
           <thead>
           <tr>
