@@ -126,21 +126,22 @@
         <alert v-model="show"  @on-show="onShow" @on-hide="onHide"> {{msg}}</alert>
       </div>
       <toast v-model="showPositionValue" type="text" :time="1000" is-show-mask  position="middle">{{popMsg}}</toast>
-      <tabbar style='position: fixed'>
-        <tabbar-item  link="/layout">
-          <i slot="icon" class='iconfont icon-yemian-copy'></i>
-          <span slot="label">首页</span>
-        </tabbar-item>
-        <tabbar-item link="/recordQuery">
-          <i slot="icon" class='iconfont icon-zhangdan'></i>
-          <span slot="label">账单查询</span>
-        </tabbar-item>
-        <tabbar-item selected link="/userlayout">
-          <i slot="icon" class='iconfont icon-wodedangxuan'></i>
-          <span slot="label">我的</span>
-        </tabbar-item>
+      <!--<tabbar style='position: fixed'>-->
+        <!--<tabbar-item  link="/layout">-->
+          <!--<i slot="icon" class='iconfont icon-yemian-copy'></i>-->
+          <!--<span slot="label">首页</span>-->
+        <!--</tabbar-item>-->
+        <!--<tabbar-item link="/myinfo">-->
+          <!--<i slot="icon" class='iconfont icon-zhangdan'></i>-->
+          <!--<span slot="label">资料认证</span>-->
+        <!--</tabbar-item>-->
+        <!--<tabbar-item selected link="/userlayout">-->
+          <!--<i slot="icon" class='iconfont icon-wodedangxuan'></i>-->
+          <!--<span slot="label">我的</span>-->
+        <!--</tabbar-item>-->
 
-      </tabbar>
+      <!--</tabbar>-->
+      <footerCom></footerCom>
       <div v-transfer-dom>
         <loading :show="show2" text=""></loading>
       </div>
@@ -150,7 +151,7 @@
 <script>
   import { XInput,Group,XButton,XHeader,Cell,Tabbar,TabbarItem,ButtonTab, ButtonTabItem ,Radio,Alert,Loading , TransferDomDirective as TransferDom ,Toast   } from 'vux'
   // import Uploader from 'vux-uploader'
-
+    import footerCom from './footerCom'
     export default {
         name: "myInfo",
       directives: {
@@ -170,7 +171,8 @@
           // Uploader,
           Alert,
           Toast,
-          Loading
+          Loading,
+          footerCom
         },
         props: [],
         data() {
@@ -407,5 +409,20 @@
 </script>
 
 <style scoped lang='less'>
-
+  .vux-button-group > a.vux-button-tab-item-first{
+    border-top-left-radius:0;
+    border-bottom-left-radius:0;
+    &:after{
+      border-top-left-radius:0;
+      border-bottom-left-radius:0;
+    }
+  }
+  .vux-button-group > a.vux-button-tab-item-last{
+    border-top-right-radius:0;
+    border-bottom-right-radius:0;
+    &:after{
+      border-top-right-radius:0;
+      border-bottom-right-radius:0;
+    }
+  }
 </style>

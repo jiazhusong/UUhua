@@ -7,7 +7,7 @@
   <div>
     <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>申请记录</x-header>
     <div :style='{"height":maxHei}' style='overflow: auto;margin-bottom: 60px; '>
-      <div>逾期滞纳金：<span style='color: rgb(63, 33, 222)'>{{datas.length>0?datas[0].penalty:0}}</span></div>
+
       <x-table :cell-bordered="false"  style="background-color:#fff;">
         <thead>
         <tr>
@@ -31,21 +31,7 @@
       </x-table>
       <p style='text-align: center' v-if='datas.length==0&&tipshow==true'>暂无数据</p>
     </div>
-    <tabbar style='position: fixed'>
-      <tabbar-item link="/layout">
-        <i slot="icon" class='iconfont icon-yemian-copy'></i>
-        <span slot="label">首页</span>
-      </tabbar-item>
-      <tabbar-item link="/recordQuery">
-        <i slot="icon" class='iconfont icon-zhangdan'></i>
-        <span slot="label">账单查询</span>
-      </tabbar-item>
-      <tabbar-item selected link="/userlayout">
-        <i slot="icon" class='iconfont icon-wodedangxuan'></i>
-        <span slot="label">我的</span>
-      </tabbar-item>
-
-    </tabbar>
+    <footerCom ></footerCom>
     <div v-transfer-dom>
       <loading :show="show2" text=""></loading>
     </div>
@@ -57,7 +43,7 @@
 
 <script>
   import {XHeader,Tabbar,TabbarItem ,XTable,Loading,TransferDomDirective as TransferDom,Toast   } from 'vux'
-
+  import footerCom from './footerCom'
   export default {
         name: "applicationRecord",
     directives: {
@@ -69,7 +55,8 @@
           TabbarItem,
           XTable,
           Loading,
-          Toast
+          Toast,
+          footerCom
 
         },
         props: [],
