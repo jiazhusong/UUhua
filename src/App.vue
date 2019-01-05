@@ -28,5 +28,9 @@ body {
   /deep/.vux-x-input .weui-icon{
     display: none;
   }
+  /deep/input.weui-input::placeholder{
+    color: #999 !important;
+    font-size: 14px;
+  }
 }
 </style>

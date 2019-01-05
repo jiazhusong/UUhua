@@ -6,7 +6,7 @@
 <template>
   <div>
     <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>修改密码</x-header>
-    <div style='text-align: center'><img src="../../../static/editPass.png" height='100' alt=""></div>
+    <!--<div style='text-align: center'><img src="../../../static/editPass.png" height='100' alt=""></div>-->
     <div style='padding: 0 30px'>
       <group>
         <x-input  placeholder="请输入手机号" is-type='china-mobile' required ref='phoneNum' v-model="phoneNum">

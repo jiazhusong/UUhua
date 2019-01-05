@@ -11,29 +11,36 @@
           <swiper :list="list" auto style="width:100%;margin:0 auto;" height="180px" dots-class="custom-bottom" dots-position="center"></swiper>
         </div>
         <div style='padding: 20px 30px'>
-          <div style='color: #fff;display: flex;justify-content: space-around'>
-            <div :class='{"active":active==1}' style='width:40%;background: rgb(165, 16, 16);height: 80px;text-align: center;' @click='applyFun(1)'>
-              <p style='font-size: 18px;'>申请额度：</p>
-              <div style='color: rgb(0, 255, 92);font-size: 28px'>
-                <i  class='iconfont icon-qian-copy'></i>
-                <span style='font-size: 28px'>1200</span>
+          <div style='color: #fff;'>
+            <div :class='{"active":active==1}' style='background: rgb(165, 16, 16);height: 80px;display: flex;justify-content: space-around' @click='applyFun(1)'>
+              <div>
+                <countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="1500" :duration="2" ></countup>
+                <span>元</span>
+              </div>
+
+              <div style=';font-size: 24px'>
+                <!--<span style='font-size: 28px'>1500</span>-->
+                <br>
+                <span>7天</span>
               </div>
             </div>
-            <div :class='{"active":active==2}' style='width:40%;background: rgb(216, 122, 122);height: 80px;text-align: center;' @click='applyFun(2)'>
-              <p style='font-size: 18px'>申请额度：</p>
-              <div style='color: rgb(0, 255, 92);font-size: 28px'>
-                <i  class='iconfont icon-qian-copy'></i>
-                <span style='font-size: 28px'>2400</span>
+            <div :class='{"active":active==2}' style='background: rgb(216, 122, 122);height: 80px;display: flex;justify-content: space-around;' @click='applyFun(2)'>
+              <div>
+                <countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="3000" :duration="2" ></countup>
+                <span>元</span>
+              </div>
+              <div style=';font-size: 24px'>
+                <!--<span style='font-size: 28px'>1500</span>-->
+                <br>
+                <span>14天</span>
               </div>
             </div>
           </div>
-          <div>
-            <p style='color:rgb(25, 131, 173);line-height: 50px;margin-top:10px;'>借款期限：7天</p>
-          </div>
-          <div>
+
+          <div style='margin-top: 50px;'>
             <x-button type='primary' style='' @click.native='appliyMoney'>立即申请</x-button>
           </div>
-          <div style='margin-top: 20px;color: rgb(25, 131, 173);' >
+          <div style='margin-top: 20px;color: hotpink;' >
             注：点击申请即表示您已同意用户条款和隐私条款，本平台不对在校大学生开放
           </div>
         </div>
@@ -47,7 +54,7 @@
 </template>
 
 <script>
-  import {XButton,XHeader,Tabbar,TabbarItem,Swiper,Alert,TransferDomDirective as TransferDom } from 'vux'
+  import {XButton,XHeader,Tabbar,TabbarItem,Swiper,Alert,TransferDomDirective as TransferDom,Countup } from 'vux'
   import footerCom from '../info/footerCom'
     export default {
         name: "layout",
@@ -62,7 +69,8 @@
           TabbarItem,
           Swiper,
           Alert,
-          footerCom
+          footerCom,
+          Countup
         },
         props: [],
         data() {
@@ -92,7 +100,7 @@
           applyFun(value){
             if(value==2){
               this.show=true;
-              this.msg="暂不开放2400额度"
+              this.msg="正常还款三次以上可申请"
             }
           },
           appliyMoney(){
@@ -124,5 +132,6 @@
 <style scoped lang='less'>
 .active{
   box-shadow: 0 0 30px rgb(165, 16, 16);
+  border: 2px solid #ccc;
 }
 </style>

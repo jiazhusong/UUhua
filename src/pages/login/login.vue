@@ -1,28 +1,39 @@
 <template>
     <div>
-      <x-header  style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>用户登录</x-header>
-      <div style='text-align: center;margin-top: 10px;'><img src="../../../static/nianqian1logo.jpg" height='130' alt=""></div>
-
-      <div style='padding: 0 30px'>
-        <group>
-          <x-input title="用户名：" placeholder="请输入用户名" v-model="useName" ref='useName' is-type='china-mobile'  required>
-            <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"  class="iconfont icon-yonghu"  ></i>
-          </x-input>
-          <x-input title="密码：" type='password' placeholder='请输入密码' v-model="password" ref='password' required>
-            <i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-icon-test"  ></i>
-          </x-input>
-          <!--<x-input  title="验证码" placeholder='请输入验证码' v-model="num" ref='num' required>-->
+      <x-header  style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>登录</x-header>
+      <div class='loginContent' style=''>
+        <div style='text-align: center;'><img src="../../../static/nianqian1logo.jpg" height='130' alt=""></div>
+        <div style='padding: 0 30px'>
+          <!--<group>-->
+            <div class='inputList' >
+              <span class='inputTitle' >用户名：</span>
+              <input class='inputClass'  v-model="useName" type="text" placeholder='请输入用户名' style='height: 30px;'>
+            </div>
+            <div class='inputList'>
+              <span class='inputTitle'>密码：</span>
+              <input class='inputClass' v-model="password" type="password" placeholder='请输入密码'>
+            </div>
+            <!--<x-input class='inputClass' title="用户名：" placeholder="请输入用户名" v-model="useName" ref='useName' is-type='china-mobile'  required>-->
+              <!--<i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"  class="iconfont icon-yonghu"  ></i>-->
+            <!--</x-input>-->
+            <!--<x-input title="密码：" type='password' placeholder='请输入密码' v-model="password" ref='password' required>-->
+              <!--<i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-icon-test"  ></i>-->
+            <!--</x-input>-->
+            <!--<x-input  title="验证码" placeholder='请输入验证码' v-model="num" ref='num' required>-->
             <!--<i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-yanzhengma"  ></i>-->
             <!--<img slot="right-full-height" @click='imgClick' :src="imgUrl">-->
-          <!--</x-input>-->
-         <div style='height:1px;background: #D9D9D9; '></div>
-          <x-button style='margin-top: 20px;' type="primary" @click.native='loginFun'>登录</x-button>
-        </group>
-        <div class='parent-box'>
-          <router-link  to='/register'>注册</router-link>
-          <router-link to='/resetpass'>忘记密码</router-link>
+            <!--</x-input>-->
+            <!--<div style='height:1px;background: #D9D9D9; '></div>-->
+            <x-button style='margin-top: 20px;border-radius: 20px' type="primary" @click.native='loginFun'>登录</x-button>
+            <x-button style='margin-top: 20px;border-radius: 20px' type="primary" @click.native='registerFun'>注册</x-button>
+          <!--</group>-->
+          <div class='parent-box'>
+            <!--<router-link  to='/register'>注册</router-link>-->
+            <router-link to='/resetpass'>忘记密码</router-link>
+          </div>
         </div>
       </div>
+
       <div v-transfer-dom>
         <alert v-model="show"  @on-show="onShow" @on-hide="onHide"> {{msg}}</alert>
       </div>
@@ -55,10 +66,13 @@
             msg:"",
             showPositionValue:false,
             showMsg:"",
+            maxHei:""
           }
       },
       mounted(){
         let vm=this;
+        vm.maxHei=window.screen.height-100+"px";
+        document.querySelector(".loginContent").style.height=window.screen.height-50+"px";
       // :left-options="{showBack: false}"
 
         // vm.$api.get("api/system/kaptcha",{responseType: 'arraybuffer'},function (data) {
@@ -77,12 +91,12 @@
           // vm.$router.push({
           //   path:"/userlayout"
           // })
-            if(!vm.$refs["useName"].valid){
+            if(vm.useName.replace(/\s/g,"")==""){
               vm.showPositionValue=true;
               vm.showMsg="请输入正确的手机号码";
               return false;
             }
-            if(!vm.$refs["password"].valid){
+            if(vm.password.replace(/\s/g,"")==""){
               vm.showPositionValue=true;
               vm.showMsg="请输入正确的密码";
               return false;
@@ -111,6 +125,11 @@
               }
             })
         },
+        registerFun(){
+            this.$router.push({
+              path:"/register"
+            })
+        },
         onHide () {
           console.log('on hide')
         },
@@ -123,10 +142,30 @@
 
 <style scoped lang='less'>
 .parent-box{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  text-align: right;
+  margin-top: 10px;
 }
+  .loginContent{
+    .inputList{
+      line-height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 0 5px;
+      margin-top: 20px;
+      background: #fff;
+      .inputClass{
+        border: none;
+        font-size: 14px;
+        &:focus{
+          outline: none;
+        }
+      }
+      .inputTitle{
+        display: inline-block;
+        width: 70px;
+        text-align: right;
+      }
+    }
+  }
+
 </style>

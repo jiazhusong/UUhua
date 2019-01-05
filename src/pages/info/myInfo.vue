@@ -5,13 +5,13 @@
 */
 <template>
     <div >
-      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>我的资料</x-header>
+      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>资料认证</x-header>
       <div  style='margin-bottom: 60px;margin-top: 10px; '>
         <div>
           <button-tab v-model="showNum">
             <button-tab-item  @on-item-click="onItemClick()">基本信息</button-tab-item>
-            <button-tab-item @on-item-click="onItemClick()">银行卡信息</button-tab-item>
-            <button-tab-item @on-item-click="onItemClick()">工作信息</button-tab-item>
+            <button-tab-item @on-item-click="onItemClick()">账户信息</button-tab-item>
+            <button-tab-item @on-item-click="onItemClick()">地址</button-tab-item>
           </button-tab>
         </div>
         <div v-show='showNum==0' :style='{"max-height": maxHei}' style='overflow: auto'>
@@ -425,4 +425,8 @@
       border-bottom-right-radius:0;
     }
   }
+  /deep/.weui-input{
+    text-align: right !important;
+  }
+
 </style>

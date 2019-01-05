@@ -5,37 +5,44 @@
 */
 <template>
     <div>
-      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>用户主页</x-header>
+      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>我的</x-header>
       <div style='margin-top: 20px;padding: 0 30px'>
         <div style='border: 1px solid #ccc;padding: 20px 10px;box-shadow:0 0 10px #ccc '>
           <img height='50' src="../../../static/user.png" alt="">
           <div style='display: inline-block'>
-            <span style=''>欢迎来到 <span style='font-size: 18px;color: rgb(0, 255, 92)'>UU花</span></span>
+            <span style=''>欢迎来到 <span style='font-size: 18px;color: #dc0b0b'>UU花</span></span>
             <br/>
             <span style=''>账号：</span>
             <span style=''>{{account}}</span>
           </div>
-
         </div>
-        <div style='border: 1px solid #ccc'>
-          <group>
-            <!--<cell is-link title="我的资料" icon-class='iconfont icon-yanzhengma' link="/myInfo">-->
-              <!--<img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/myinfo.png">-->
+        <!--<div style='border: 1px solid #ccc'>-->
+          <!--<group>-->
+            <!--&lt;!&ndash;<cell is-link title="我的资料" icon-class='iconfont icon-yanzhengma' link="/myInfo">&ndash;&gt;-->
+              <!--&lt;!&ndash;<img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/myinfo.png">&ndash;&gt;-->
+            <!--&lt;!&ndash;</cell>&ndash;&gt;-->
+            <!--<cell is-link title="申请记录 " link='/applicationRecord'>-->
+              <!--<img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/applicationRecord.png">-->
             <!--</cell>-->
-            <cell is-link title="申请记录 " link='/applicationRecord'>
-              <img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/applicationRecord.png">
-            </cell>
-            <cell is-link title="账单查询 " link="/recordQuery">
-              <img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/billQuery.png">
-            </cell>
-            <cell is-link title="修改密码 " link="/resetpass">
-              <img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/editpass1.png">
-            </cell>
-            <cell is-link title="退出登录 " @click.native="loginoutFun"  >
-              <img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/outlogin.png">
+            <!--<cell is-link title="账单查询 " link="/recordQuery">-->
+              <!--<img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/billQuery.png">-->
+            <!--</cell>-->
+            <!--<cell is-link title="修改密码 " link="/resetpass">-->
+              <!--<img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/editpass1.png">-->
+            <!--</cell>-->
+            <!--<cell is-link title="退出登录 " @click.native="loginoutFun"  >-->
+              <!--<img slot="icon" width="20" style="display:block;margin-right:5px;" src="../../../static/outlogin.png">-->
 
-            </cell>
-          </group>
+            <!--</cell>-->
+          <!--</group>-->
+        <!--</div>-->
+        <div >
+
+            <router-link class='router_li' :to='{path: "/recordQuery"}'>账单查询</router-link>
+            <router-link class='router_li' :to='{path: "/applicationRecord"}'>申请记录</router-link>
+            <router-link class='router_li' :to='{path: "/resetpass"}'>修改密码</router-link>
+            <span class='router_li' @click="loginoutFun">退出登录</span>
+
         </div>
       </div>
       <footerCom></footerCom>
@@ -47,7 +54,7 @@
 </template>
 
 <script>
-  import {Group,XHeader,Cell,Tabbar,TabbarItem,Toast ,Loading, TransferDomDirective as TransferDom } from 'vux'
+  import {Group,XHeader,Cell,Tabbar,TabbarItem,Toast ,Loading, TransferDomDirective as TransferDom,XButton } from 'vux'
   import footerCom from '../info/footerCom'
     export default {
         name: "userMain",
@@ -59,7 +66,8 @@
           TabbarItem,
           Toast,
           Loading,
-          footerCom
+          footerCom,
+          XButton
         },
         props: [],
       directives: {
@@ -96,6 +104,7 @@
         methods: {
           loginoutFun(){
             let vm=this;
+            console.log(1);
             vm.$api.post("api/system/logout","",function ({data}) {
               if(data.code==20){
                 sessionStorage.clear();
@@ -120,5 +129,15 @@
 </script>
 
 <style scoped lang='less'>
-
+.router_li{
+  color: #dc0b0b;
+  background: pink;
+  width: 100%;
+  display: inline-block;
+  margin-top: 10px;
+  border-radius: 20px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
 </style>

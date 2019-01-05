@@ -8,27 +8,47 @@
     <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>申请记录</x-header>
     <div :style='{"height":maxHei}' style='overflow: auto;margin-bottom: 60px; '>
 
-      <x-table :cell-bordered="false"  style="background-color:#fff;">
-        <thead>
-        <tr>
-          <th>周期</th>
-          <th>申请时间</th>
-          <th>还款时间</th>
-          <th>状态</th>
-          <th>申请额度</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for='item in datas'>
-          <td>{{item.loanDay}}天</td>
-          <td>{{item.submitDate.slice(0,10)}}</td>
-          <td>{{item.billRepaymentTime?item.billRepaymentTime.substr(0,10):""}}</td>
-          <td>{{item.status|statusFun}}</td>
-          <td style='color: rgb(63, 33, 222)'>{{item.bill}}</td>
-        </tr>
+      <!--<x-table :cell-bordered="false"  style="background-color:#fff;">-->
+        <!--<thead>-->
+        <!--<tr>-->
+          <!--<th>周期</th>-->
+          <!--<th>申请时间</th>-->
+          <!--<th>还款时间</th>-->
+          <!--<th>状态</th>-->
+          <!--<th>申请额度</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr v-for='item in datas'>-->
+          <!--<td>{{item.loanDay}}天</td>-->
+          <!--<td>{{item.submitDate.slice(0,10)}}</td>-->
+          <!--<td>{{item.billRepaymentTime?item.billRepaymentTime.substr(0,10):""}}</td>-->
+          <!--<td>{{item.status|statusFun}}</td>-->
+          <!--<td style='color: rgb(63, 33, 222)'>{{item.bill}}</td>-->
+        <!--</tr>-->
 
-        </tbody>
-      </x-table>
+        <!--</tbody>-->
+      <!--</x-table>-->
+      <div style='display: flex;border: 1px solid #ccc;box-shadow: 0 0 10px #ccc;padding-left: 10px;margin-top: 5px;' v-for='item in arr'>
+
+      <div style='width: 50%;'>
+      <span>申请时间：<span>2016-11-1</span></span>
+      <br>
+      <!--<span>状态<br><span>未审核</span></span>-->
+      <span>还款时间：<span>2016-11-7</span></span>
+      <br>
+      <span>状态：<span style='color: #dc0b0b'>未审核</span></span>
+      <br>
+      </div>
+      <div style='width: 50%;padding-left: 10px;'>
+      <span>申请金额：<span style='color: #dc0b0b'>1200元</span></span>
+      <br>
+      <span>周期：<span>7天</span></span>
+      <br>
+      <!--<x-button type="primary" style='width: 100px;margin-right: 0;margin:5px;' :mini=true>账单分解</x-button>-->
+      </div>
+
+      </div>
       <p style='text-align: center' v-if='datas.length==0&&tipshow==true'>暂无数据</p>
     </div>
     <footerCom ></footerCom>
@@ -78,7 +98,8 @@
               tipshow:false,
               show2:false,
               showPositionValue:false,
-              popmsg:""
+              popmsg:"",
+              arr:[1,2,3,5,6,7,8]
             }
         },
         mounted() {
