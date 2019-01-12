@@ -87,7 +87,7 @@
               },
                 {
                 url: 'javascript:',
-                img: '../../../static/swiper4.jpg',
+                img: '../../../static/time2.jpg',
                 title: '',
               }]
             }

@@ -50,17 +50,11 @@
           <!--</div>-->
 
         <!--</div>-->
-        <div style='font-size: 12px;color: #999;line-height: 40px;padding-left: 15px;'>注：还款的最后时间为还款日22:00，逾期将产生逾期滞纳金</div>
-        <form-preview header-label="申请金额" header-value="¥1500" :body-items="list" :footer-buttons="buttonsArr" name="demo"></form-preview>
+        <div v-if='list.length>0' style='font-size: 12px;color: #999;line-height: 40px;padding-left: 15px;'>注：还款的最后时间为还款日18:00，逾期将产生逾期滞纳金</div>
+        <form-preview v-if='list.length>0' header-label="申请金额" header-value="¥1500" :body-items="list" :footer-buttons="buttonsArr" name="demo"></form-preview>
 
-        <p style='text-align: center' v-if='datas.length==0&&tipshow==true'>暂无数据</p>
-        <div v-if='infoShow'>
-          <div style='text-align: center'>收款人信息</div>
-          <cell title="收款人姓名" value="杜亮" ></cell>
-          <cell title="支付宝账号"   value="2948515@qq.com"></cell>
-          <cell title="微信账号"   value="121212121"></cell>
-          <cell title="管理员电话"   value="121212121"></cell>
-        </div>
+        <p style='text-align: center' v-if='list.length==0'>暂无数据</p>
+
       </div>
       <toast v-model="showPositionValue" type="text" :time="1000" is-show-mask text="" position="middle">{{popmsg}}</toast>
       <footerCom></footerCom>
@@ -72,7 +66,7 @@
           <div style='line-height: 24px'>
             <div >还款账号已复制</div>
             <div>请自行还款到公司企业账户</div>
-            <div>支付宝：<span style='color: red'>232323@qq.com</span></div>
+            <div>支付宝：（杜业武）<span style='color: red'>18771186061</span></div>
             <div>还款时间截止账单日22:00，还款时请添加备注<span style='color: red'>“姓名+手机号”</span>，系统会在一小时内自动处理</div>
 
           </div>
@@ -125,17 +119,7 @@
               show:false,
               msg:"",
               infoShow:false,
-              arr:[1,2,3,4,5,6,7,8,9,10],
-              list:[{
-                label: '申请时间',
-                value: '2012.12.12'
-              }, {
-                label: '标题标题',
-                value: '名字名字名字'
-              }, {
-                label: '标题标题',
-                value: '很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字'
-              }],
+              list:[],
               buttonsArr:[
                 {
                   style: 'primary',
@@ -153,29 +137,62 @@
             text: '正在加载中...'
           })
           vm.maxHei=window.screen.height-100+"px";
+          // vm.$api.get("api/bill/loan/check",{
+          //   page:0,
+          //   size:50,
+          // },function ({data}) {
+          //   vm.$vux.loading.hide();
+          //   console.log(1);
+          //   console.log(data.code);
+          //
+          //   if(data.code==20){
+          //     vm.tipshow=true;
+          //       vm.list=[{
+          //         label: '申请时间',
+          //         value: data.data.submitDate.slice(0,10)
+          //       },{
+          //         label: '还款时间',
+          //         value: data.data.billRepaymentTime?v.billRepaymentTime.substr(0,10):""
+          //       },{
+          //         label: '状态',
+          //         value: vm.statusFilters(data.data.status)
+          //       },{
+          //         label: '逾期滞纳金',
+          //         value: data.data.penalty?data.data.penalty:0
+          //       }]
+          //
+          //   }else if(data.code==401){
+          //     sessionStorage.clear();
+          //     vm.$router.push({
+          //       path:"/"
+          //     })
+          //
+          //   }else {
+          //     vm.popmsg=data.message;
+          //     vm.showPositionValue=true;
+          //   }
+          // })
           vm.$api.get("api/bill/loan/check",{
-            page:0,
-            size:50,
-          },function ({data}) {
+            // page:0,
+            // size:50,
+          },function (res) {
+            let data=res.data;
             vm.$vux.loading.hide();
             if(data.code==20){
               vm.tipshow=true;
-              data.data.list.forEach((v)=>{
-                vm.datas.push([{
-                  label: '申请时间',
-                  value: v.submitDate.slice(0,10)
-                },{
-                  label: '还款时间',
-                  value: v.billRepaymentTime?v.billRepaymentTime.substr(0,10):""
-                },{
-                  label: '状态',
-                  value: vm.statusFilters(v.status)
-                },{
-                  label: '逾期滞纳金',
-                  value: v.penalty?v.penalty:0
-                },])
-              })
-              vm.datas=data.data.list
+              vm.list=[{
+                label: '申请时间',
+                value: data.data.submitDate.slice(0,10)
+              },{
+                label: '还款时间',
+                value: data.data.billRepaymentTime?data.data.billRepaymentTime.substr(0,10):""
+              },{
+                label: '状态',
+                value: vm.statusFilters(data.data.status)
+              },{
+                label: '逾期滞纳金',
+                value: data.data.penalty?data.data.penalty:0
+              }]
             }else if(data.code==401){
               sessionStorage.clear();
               vm.$router.push({
@@ -194,7 +211,7 @@
             // vm.infoShow=true;
             vm.show=true;
             vm.msg="如需延期，请联系管理员审核"
-            vm.Copy("23232322")
+            vm.Copy(18771186061)
           },
           statusFilters(value){
             if(value=="PENDING"){

@@ -30,6 +30,9 @@ function apiAxios(method, url, params, response) {
     data: method === 'POST' || method === 'PUT' ? params : null,
     params: method === 'GET' || method === 'DELETE' ? params : null,
   }).then(function (res) {
+    if(res.data.code==401){
+      sessionStorage.clear('username')
+    }
     response(res);
   }).catch(function (err) {
     response(err);

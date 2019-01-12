@@ -5,7 +5,7 @@
 */
 <template>
   <div class='apps'>
-    <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>注册</x-header>
+    <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>咔咔钱包</x-header>
     <div class='loginContent'>
       <div style='text-align: center'><img height='100' src="../../../static/register.png" alt=""></div>
       <div style='padding: 0 30px'>
@@ -238,6 +238,8 @@
       }
     }
   }
-
+/deep/.weui-btn_disabled.weui-btn_primary{
+  background-color:#E22122;
+}
 
 </style>

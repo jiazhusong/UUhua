@@ -1,6 +1,6 @@
 <template>
     <div>
-      <x-header  style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>登录</x-header>
+      <x-header  style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>咔咔钱包</x-header>
       <div class='loginContent' style=''>
         <div style='text-align: center;'><img src="../../../static/nianqian1logo.jpg" height='130' alt=""></div>
         <div style='padding: 0 30px'>
