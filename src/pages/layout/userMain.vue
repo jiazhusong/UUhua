@@ -10,7 +10,7 @@
         <div style='border: 1px solid #ccc;padding: 20px 10px;box-shadow:0 0 10px #ccc '>
           <img height='50' src="../../../static/user.png" alt="">
           <div style='display: inline-block'>
-            <span style=''>欢迎来到 <span style='font-size: 18px;color: #dc0b0b'>UU花</span></span>
+            <span style=''>欢迎来到 <span style='font-size: 18px;color: #dc0b0b'>咔咔钱包</span></span>
             <br/>
             <span style=''>账号：</span>
             <span style=''>{{account}}</span>

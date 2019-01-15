@@ -181,5 +181,8 @@
 </script>
 
 <style scoped lang='less'>
+  /deep/.weui-btn_disabled.weui-btn_primary{
+    background-color:#E22122;
+  }
 
 </style>
