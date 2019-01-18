@@ -67,7 +67,7 @@
             <div >还款账号已复制</div>
             <div>请自行还款到公司企业账户</div>
             <div>支付宝：（杜业武）<span style='color: red'>18771186061</span></div>
-            <div>还款时间截止账单日22:00，还款时请添加备注<span style='color: red'>“姓名+手机号”</span>，系统会在一小时内自动处理</div>
+            <div>还款时间截止账单日18:00，还款时请添加备注<span style='color: red'>“姓名+手机号”</span>，系统会在一小时内自动处理</div>
 
           </div>
         </alert>
@@ -223,7 +223,8 @@
             }
           },
          Copy(str){
-            var save = function(e){
+            var save = function(event){
+              let e=event||window.event
               e.clipboardData.setData('text/plain', str);
               e.preventDefault();
             }
