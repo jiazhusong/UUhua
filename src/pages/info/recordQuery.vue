@@ -51,8 +51,9 @@
 
         <!--</div>-->
         <div v-if='list.length>0' style='font-size: 12px;color: #999;line-height: 40px;padding-left: 15px;'>注：还款的最后时间为还款日18:00，逾期将产生逾期滞纳金</div>
-        <form-preview v-if='list.length>0' header-label="申请金额" header-value="¥1500" :body-items="list" :footer-buttons="buttonsArr" name="demo"></form-preview>
-
+        <form-preview v-if='list.length>0'  header-label="申请金额" header-value="¥1500" :body-items="list" :footer-buttons="buttonsArr" name="demo" class='formClass'></form-preview>
+        <div @click='showTipFun'  class="btn" data-clipboard-text="18771186061" data-clipboard-action="copy" style='text-align: center;color:#0BB20C;line-height: 50px; '>还款</div>
+        <!--<input type="text" id="taokouling" value='18771186061' hidden>-->
         <p style='text-align: center' v-if='list.length==0'>暂无数据</p>
 
       </div>
@@ -78,6 +79,7 @@
 <script>
   import {XHeader,Tabbar,TabbarItem ,XTable ,Toast,Loading,TransferDomDirective as TransferDom ,Alert,XButton,FormPreview,Cell} from 'vux'
   import footerCom from './footerCom'
+  import Clipboard from 'clipboard';
     export default {
         name: "recordQuery",
       directives: {
@@ -210,7 +212,7 @@
             let vm=this;
             // vm.infoShow=true;
             vm.show=true;
-            vm.msg="如需延期，请联系管理员审核"
+            // vm.msg="如需延期，请联系管理员审核"
             vm.Copy(18771186061)
           },
           statusFilters(value){
@@ -223,14 +225,22 @@
             }
           },
          Copy(str){
-            var save = function(event){
-              let e=event||window.event
-              e.clipboardData.setData('text/plain', str);
-              e.preventDefault();
-            }
-            document.addEventListener('copy', save);
-            document.execCommand('copy');
-            document.removeEventListener('copy',save);
+            // var save = function(event){
+            //   let e=event||window.event
+            //   e.clipboardData.setData('text/plain', str);
+            //   e.preventDefault();
+            // }
+            // document.addEventListener('copy', save);
+            // document.execCommand('copy');
+            // document.removeEventListener('copy',save);
+           var clipboard = new Clipboard('.btn');
+           clipboard.on('success', function(e){
+             console.log(e);
+             // document.getElementById('copyCode').innerHTML = '复制成功';
+           });
+           clipboard.on('error', function(e){
+             // document.getElementById('copyCode').innerHTML = '复制失败，请长按复制';
+           });
           }
         }
     }
