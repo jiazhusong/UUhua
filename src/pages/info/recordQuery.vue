@@ -51,7 +51,7 @@
 
         <!--</div>-->
         <div v-if='list.length>0' style='font-size: 12px;color: #999;line-height: 40px;padding-left: 15px;'>注：还款的最后时间为还款日18:00，逾期将产生逾期滞纳金</div>
-        <form-preview v-if='list.length>0'  header-label="申请金额" header-value="¥1500" :body-items="list" :footer-buttons="buttonsArr" name="demo" class='formClass'></form-preview>
+        <form-preview v-if='list.length>0'  header-label="申请金额" header-value="¥1500" :body-items="list"  name="demo" class='formClass'></form-preview>
         <div @click='showTipFun'  class="btn" data-clipboard-text="18771186061" data-clipboard-action="copy" style='text-align: center;color:#0BB20C;line-height: 50px; '>还款</div>
         <!--<input type="text" id="taokouling" value='18771186061' hidden>-->
         <p style='text-align: center' v-if='list.length==0'>暂无数据</p>
@@ -122,15 +122,15 @@
               msg:"",
               infoShow:false,
               list:[],
-              buttonsArr:[
-                {
-                  style: 'primary',
-                  text: "还款",
-                  onButtonClick: (name) => {
-                    this.showTipFun();
-                  }
-                }
-              ]
+              // buttonsArr:[
+              //   {
+              //     style: 'primary',
+              //     text: "还款",
+              //     onButtonClick: (name) => {
+              //       this.showTipFun();
+              //     }
+              //   }
+              // ]
             }
         },
         mounted() {
