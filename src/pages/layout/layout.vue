@@ -100,7 +100,7 @@
           applyFun(value){
             if(value==2){
               this.show=true;
-              this.msg="正常还款三次以上可申请"
+              this.msg="正常还款多次以上可申请"
             }
           },
           appliyMoney(){
