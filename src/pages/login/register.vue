@@ -5,9 +5,9 @@
 */
 <template>
   <div class='apps'>
-    <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>咔咔钱包</x-header>
+    <!--<x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>咔咔钱包</x-header>-->
     <div class='loginContent'>
-      <div style='text-align: center'><img height='100' src="../../../static/register.png" alt=""></div>
+      <!--<div style='text-align: center'><img height='100' src="../../../static/register.png" alt=""></div>-->
       <div style='padding: 0 30px'>
         <!--<group>-->
           <!--<x-input title="用户名：" placeholder="请输入手机号" ref='phoneNum' :max=11 :show-clear=false is-type='china-mobile' v-model="phoneNum" required>-->
@@ -49,15 +49,15 @@
           <input class='inputClass inputCode' v-model="phoneCode" type="text" placeholder='手机验证码'>
           <x-button slot="right" type="primary"   :disabled='codeBtn!="发送验证码"'  @click.native='sendCodeFun' mini >{{codeBtn}}</x-button>
         </div>
-        <x-button style='margin-top: 20px;border-radius: 20px' type="primary" @click.native='registerFun'>注册</x-button>
+        <x-button style='margin-top: 20px;border-radius: 5px' type="primary" @click.native='registerFun'>注册</x-button>
         <div v-transfer-dom>
           <alert v-model="show"  @on-show="onShow" @on-hide="onHide"> {{msg}}</alert>
         </div>
         <toast v-model="showPositionValue" type="text" :time="1000" is-show-mask :text="showMsg" position="middle"></toast>
-        <div style='margin-top: 20px;'>
-          如果您已经拥有账号,请点击<router-link to='/'> <x-button  type="primary" mini  >登录</x-button></router-link>
+        <!--<div style='margin-top: 20px;'>-->
+          <!--如果您已经拥有账号,请点击<router-link to='/'> <x-button  type="primary" mini  >登录</x-button></router-link>-->
 
-        </div>
+        <!--</div>-->
       </div>
 
     </div>
@@ -215,8 +215,8 @@
   .loginContent{
     .inputList{
       line-height: 40px;
-      border: 1px solid #ccc;
-      border-radius: 20px;
+      border: 1px solid #04BE02;
+      border-radius: 5px;
       padding: 0 5px;
       margin-top: 20px;
       background: #fff;
@@ -238,8 +238,5 @@
       }
     }
   }
-/deep/.weui-btn_disabled.weui-btn_primary{
-  background-color:#E22122;
-}
 
 </style>

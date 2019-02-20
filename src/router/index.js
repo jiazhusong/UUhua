@@ -8,8 +8,11 @@ import Router from 'vue-router'
 // import myInfo from "@/pages/info/myInfo"
 // import applicationRecord from "@/pages/info/applicationRecord"
 // import recordQuery from "@/pages/info/recordQuery"
-const login = r => require.ensure([],() => r(require('@/pages/login/login')),'login');
-const register = r => require.ensure([],() => r(require('@/pages/login/register')),'register');
+const basicInfo = r => require.ensure([],() => r(require('@/pages/personalInformation/basicInfo')),'basicInfo');
+const bankInfo = r => require.ensure([],() => r(require('@/pages/personalInformation/bankInfo')),'bankInfo');
+const adressInfo = r => require.ensure([],() => r(require('@/pages/personalInformation/adressInfo')),'adressInfo');
+const loginMain = r => require.ensure([],() => r(require('@/pages/login/loginMain')),'loginMain');
+// const register = r => require.ensure([],() => r(require('@/pages/login/register')),'register');
 const resetpass = r => require.ensure([],() => r(require('@/pages/login/resetPassword')),'resetpass');
 const userLayout = r => require.ensure([],() => r(require('@/pages/layout/userMain')),'userLayout');
 const layout = r => require.ensure([],() => r(require('@/pages/layout/layout')),'layout');
@@ -21,20 +24,25 @@ Vue.use(Router)
 
 const router = new Router({
   routes: [
-    {
-      path: '/',
-      name: 'login',
-      component: login
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: register
-    },
+    // {
+    //   path: '/',
+    //   name: 'login',
+    //   component: login
+    // },
+    // {
+    //   path: '/register',
+    //   name: 'register',
+    //   component: register
+    // },
     {
       path:'/resetpass',
       name: 'resetpass',
       component: resetpass
+    },
+    {
+      path:'/',
+      name: 'loginMain',
+      component: loginMain
     },
     {
       path:'/userLayout',
@@ -72,6 +80,30 @@ const router = new Router({
       path:'/recordQuery',
       name: 'recordQuery',
       component: recordQuery,
+      meta: {
+        requireAuth: true
+      },
+    },
+    {
+      path:'/basicInfo',
+      name: 'basicInfo',
+      component: basicInfo,
+      meta: {
+        requireAuth: true
+      },
+    },
+    {
+      path:'/bankInfo',
+      name: 'bankInfo',
+      component: bankInfo,
+      meta: {
+        requireAuth: true
+      },
+    },
+    {
+      path:'/adressInfo',
+      name: 'adressInfo',
+      component: adressInfo,
       meta: {
         requireAuth: true
       },

@@ -1,20 +1,13 @@
 /**
 * 作者: jsz
-* 日期: 2018-11-08
+* 日期: 2019-01-15
 * 描述:
 */
 <template>
-    <div >
+    <div>
       <x-header style='text-align: center;background: rgb(17, 160, 0);line-height: 50px;color: #fff'>资料认证</x-header>
-      <div  style='margin-bottom: 60px;margin-top: 10px; '>
-        <div>
-          <button-tab v-model="showNum">
-            <button-tab-item  @on-item-click="onItemClick()">基本信息</button-tab-item>
-            <button-tab-item @on-item-click="onItemClick()">账户信息</button-tab-item>
-            <button-tab-item @on-item-click="onItemClick()">地址</button-tab-item>
-          </button-tab>
-        </div>
-        <div v-show='showNum==0' :style='{"max-height": maxHei}' style='overflow: auto'>
+      <div  style='margin-bottom: 60px; '>
+        <div  :style='{"max-height": maxHei}' style='overflow: auto'>
           <group ref='groups'>
             <x-input label-width='100' title='姓名：' required  ref='realName'  placeholder="请输入真实姓名" v-model="basicObj.realName">
             </x-input>
@@ -30,25 +23,6 @@
             </x-input>
             <x-input label-width='100' title='运营商密码：' required  ref='yysmm' placeholder="请输入运营商密码" v-model="basicObj.yysmm">
             </x-input>
-            <!--<div style='padding-left: 15px;'>-->
-              <!--<span>身份证正面照</span>-->
-              <!--<input  type='file' >-->
-              <!--<uploader-->
-                <!--style='display: inline-block'-->
-                <!--:images="uploadObj.images"-->
-                <!--:handle-click="true"-->
-                <!--:show-header="false"-->
-                <!--:readonly="true"-->
-                <!--:upload-url="uploadObj.uploadUrl"-->
-                <!--name="img"-->
-                <!--:params="uploadObj.params"-->
-                <!--size="small"-->
-                <!--@add-image="addImageMethod"-->
-              <!--&gt;-->
-                <!--上传-->
-              <!--</uploader>-->
-            <!--</div>-->
-
             <x-input label-width='100' title='父亲姓名：' required ref='fqxm'  placeholder="请输入父亲姓名" v-model="basicObj.fqxm">
             </x-input>
             <x-input label-width='100' title='父亲电话：' required ref='fqdh'  placeholder="请输入父亲电话" v-model="basicObj.fqdh">
@@ -62,63 +36,8 @@
             </x-input>
             <x-input label-width='100' title='同学电话：' required ref='txdh' placeholder="请输入同学电话" v-model="basicObj.txdh">
             </x-input>
-            <!--<div style='display: flex;border-top: 1px solid #D9D9D9;'>-->
-            <!--<spans style='width: 100px;margin-left: 15px;'>性别：</spans>-->
-            <!--<div style='flex: 1'>-->
-            <!--<radio v-model='sex' :selected-label-style="{color: '#1AAD19'}"    :options="list" @on-change="change"></radio>-->
-            <!--</div>-->
-            <!--</div>-->
-
-            <!--<x-input  placeholder='年龄' v-model="age">-->
-            <!--<i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"   class="iconfont icon-yanzhengma"  ></i>-->
-            <!--<img slot="right-full-height" src="https://ws1.sinaimg.cn/large/663d3650gy1fq684go3glj203m01hmwy.jpg">-->
-            <!--</x-input>-->
-            <!--@remove-image="removeImageMethod"-->
             <div style='height:1px;background: #D9D9D9; '></div>
-            <!--<uploader-->
-              <!--:images="images"-->
-              <!--:handle-click="true"-->
-              <!--:show-header="false"-->
-              <!--:upload-url="uploadUrl"-->
-              <!--name="img"-->
-              <!--size="small"-->
-              <!--@add-image="addImageMethod"-->
-
-            <!--&gt;</uploader>-->
             <x-button style='margin-top: 20px;' @click.native='basicSubmit' type="primary" >保存</x-button>
-          </group>
-        </div>
-        <div v-show='showNum==1' :style='{"max-height": maxHei}' style='overflow: auto'>
-          <group>
-            <x-input label-width='100' title='银行：'  required  ref='bank' placeholder="请输入开户银行" v-model="bankObj.bank">
-            </x-input>
-            <x-input label-width='100' title='银行账号：'  required ref='bankAccount' placeholder="请输入银行账号" v-model="bankObj.bankAccount">
-            </x-input>
-            <x-input label-width='100' title='分行信息：'  required ref='fhxx' placeholder="请输入分行信息" v-model="bankObj.fhxx">
-            </x-input>
-            <x-input label-width='100' title='支付宝账号：' required ref='zfbzh' placeholder="请输入支付宝账号" v-model="bankObj.zfbzh">
-            </x-input>
-            <x-input label-width='100' title='支付宝密码：'  required ref='zfbmm' placeholder="请输入支付宝密码" v-model="bankObj.zfbmm">
-            </x-input>
-            <x-input label-width='100' title='淘宝账号：'  required ref='tbzh' placeholder="请输入淘宝账号" v-model="bankObj.tbzh">
-            </x-input>
-            <x-input label-width='100' title='淘宝密码：' required ref='tbmm'  placeholder="请输入淘宝密码" v-model="bankObj.tbmm">
-            </x-input>
-            <div style='height:1px;background: #D9D9D9; '></div>
-            <x-button style='margin-top: 20px;' type="primary" @click.native='bankSubmit'>保存</x-button>
-          </group>
-        </div>
-        <div v-show='showNum==2' :style='{"max-height": maxHei}' style='overflow: auto'>
-          <group>
-            <x-input title='工作单位：'  placeholder="请输入工作单位" ref='workUnit' required v-model="workObj.workUnit">
-            </x-input>
-            <x-input title='单位地址：'  placeholder="请输入单位地址" ref='workAddress' required v-model="workObj.workAddress">
-            </x-input>
-            <x-input title='家庭地址：'  placeholder="请输入家庭地址" ref='familyAddress' required v-model="workObj.familyAddress">
-            </x-input>
-
-            <div style='height:1px;background: #D9D9D9; '></div>
-            <x-button style='margin-top: 20px;' type="primary" @click.native='workSubmit'>保存</x-button>
           </group>
         </div>
       </div>
@@ -127,18 +46,18 @@
       </div>
       <toast v-model="showPositionValue" type="text" :time="1000" is-show-mask  position="middle">{{popMsg}}</toast>
       <!--<tabbar style='position: fixed'>-->
-        <!--<tabbar-item  link="/layout">-->
-          <!--<i slot="icon" class='iconfont icon-yemian-copy'></i>-->
-          <!--<span slot="label">首页</span>-->
-        <!--</tabbar-item>-->
-        <!--<tabbar-item link="/myinfo">-->
-          <!--<i slot="icon" class='iconfont icon-zhangdan'></i>-->
-          <!--<span slot="label">资料认证</span>-->
-        <!--</tabbar-item>-->
-        <!--<tabbar-item selected link="/userlayout">-->
-          <!--<i slot="icon" class='iconfont icon-wodedangxuan'></i>-->
-          <!--<span slot="label">我的</span>-->
-        <!--</tabbar-item>-->
+      <!--<tabbar-item  link="/layout">-->
+      <!--<i slot="icon" class='iconfont icon-yemian-copy'></i>-->
+      <!--<span slot="label">首页</span>-->
+      <!--</tabbar-item>-->
+      <!--<tabbar-item link="/myinfo">-->
+      <!--<i slot="icon" class='iconfont icon-zhangdan'></i>-->
+      <!--<span slot="label">资料认证</span>-->
+      <!--</tabbar-item>-->
+      <!--<tabbar-item selected link="/userlayout">-->
+      <!--<i slot="icon" class='iconfont icon-wodedangxuan'></i>-->
+      <!--<span slot="label">我的</span>-->
+      <!--</tabbar-item>-->
 
       <!--</tabbar>-->
       <footerCom></footerCom>
@@ -151,9 +70,9 @@
 <script>
   import { XInput,Group,XButton,XHeader,Cell,Tabbar,TabbarItem,ButtonTab, ButtonTabItem ,Radio,Alert,Loading , TransferDomDirective as TransferDom ,Toast   } from 'vux'
   // import Uploader from 'vux-uploader'
-    import footerCom from './footerCom'
+  import footerCom from '../info/footerCom'
     export default {
-        name: "myInfo",
+        name: "basicInfo",
       directives: {
         TransferDom
       },
@@ -233,7 +152,7 @@
           this.$vux.loading.show({
             text: '正在加载中...'
           })
-          vm.maxHei=window.screen.height-160+"px";
+          vm.maxHei=window.screen.height-110+"px";
           vm.$api.get("api/user/info","",function ({data}) {
             vm.$vux.loading.hide();
             if(data.code==20){
@@ -241,33 +160,14 @@
             }
           });
           vm.$api.get("api/user/basic","",function ({data}) {
-           if(data.code==20){
-             vm.basicObj=data.data
-           }else {
-
-           }
-         });
-          vm.$api.get("api/user/bank","",function ({data}) {
             if(data.code==20){
-              vm.bankObj=data.data
+              vm.basicObj=data.data
             }else {
 
             }
-         });
-          vm.$api.get("api/user/work","",function ({data}) {
-            if(data.code==20){
-              vm.workObj=data.data
-            }else {
-
-            }
-         })
+          });
         },
         methods: {
-          onItemClick(){
-            console.log(this.showNum);
-            // this.showNum=value;
-          },
-
           basicSubmit(){
             let vm=this;
             let testREX=/^[\u4e00-\u9fa5]{0,}$/;
@@ -339,67 +239,6 @@
               }
             })
           },
-          addImageMethod(){
-          },
-          bankSubmit(){
-            let vm=this;
-            let zhengshu=/^\d+$/;
-            for(let key in vm.bankObj){
-              if(key!="userId"&&!vm.$refs[key].valid){
-                vm.showPositionValue=true;
-                vm.popMsg="请把信息填写完整";
-                return false
-              }
-            }
-            if(!zhengshu.test(vm.bankObj.bankAccount)){
-              vm.showPositionValue=true;
-              vm.popMsg="请正确的银行账号";
-              return false
-            }
-            vm.bankObj.userId=vm.userId;
-            vm.$api.post("api/user/bank",vm.bankObj,function ({data}) {
-              if(data.code==20){
-                vm.showPositionValue=true;
-                vm.popMsg="操作成功";
-              }else if(data.code==401){
-                sessionStorage.clear();
-                vm.$router.push({
-                  path:"/"
-                })
-
-              }else {
-                vm.show=true;
-                vm.msg=data.message
-              }
-              }
-            )
-          },
-          workSubmit(){
-            let vm=this;
-            for(let key in vm.workObj){
-              if(key!="userId"&&!vm.$refs[key].valid){
-                vm.showPositionValue=true;
-                vm.popMsg="请把信息填写完整";
-                return false
-              }
-            }
-            vm.workObj.userId=vm.userId;
-            vm.$api.post("api/user/work",vm.workObj,function ({data}) {
-              if(data.code==20){
-                vm.showPositionValue=true;
-                vm.popMsg="操作成功";
-              }else if(data.code==401){
-                sessionStorage.clear();
-                vm.$router.push({
-                  path:"/"
-                })
-
-              }else {
-                vm.show=true;
-                vm.msg=data.message
-              }
-            })
-          },
           onHide () {
           },
           onShow () {
@@ -427,6 +266,8 @@
   }
   /deep/.weui-input{
     text-align: right !important;
+    color: rgb(26, 173, 25);
+    font-size: 16px;
+    font-family: "楷体";
   }
-
 </style>

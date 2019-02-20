@@ -5,12 +5,12 @@
 */
 <template>
     <div>
-      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>咔咔钱包</x-header>
+      <x-header style='text-align: center;background:rgb(17, 160, 0);line-height: 50px;color: #fff'>七彩宝</x-header>
       <div style='margin-top: 20px;padding: 0 30px'>
         <div style='border: 1px solid #ccc;padding: 20px 10px;box-shadow:0 0 10px #ccc '>
-          <img height='50' src="../../../static/user.png" alt="">
+          <!--<img height='50' src="../../../static/user.png" alt="">-->
           <div style='display: inline-block'>
-            <span style=''>欢迎来到 <span style='font-size: 18px;color: #dc0b0b'>咔咔钱包</span></span>
+            <span style=''>欢迎来到 <span style='font-size: 18px;color: rgb(17, 160, 0)'>七彩宝</span></span>
             <br/>
             <span style=''>账号：</span>
             <span style=''>{{account}}</span>
@@ -38,7 +38,9 @@
         <!--</div>-->
         <div >
 
-            <router-link class='router_li' :to='{path: "/recordQuery"}'>账单查询</router-link>
+            <router-link class='router_li' :to='{path: "/basicInfo"}'>基本资料</router-link>
+            <router-link class='router_li' :to='{path: "/bankInfo"}'>银行账户</router-link>
+            <router-link class='router_li' :to='{path: "/adressInfo"}'>地址</router-link>
             <router-link class='router_li' :to='{path: "/applicationRecord"}'>申请记录</router-link>
             <router-link class='router_li' :to='{path: "/resetpass"}'>修改密码</router-link>
             <span class='router_li' @click="loginoutFun">退出登录</span>
@@ -130,12 +132,12 @@
 
 <style scoped lang='less'>
 .router_li{
-  color: #dc0b0b;
-  background: pink;
+  color: #fff;
+  background: #3dd2c4;
   width: 100%;
   display: inline-block;
   margin-top: 10px;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 40px;
   text-align: center;
   line-height: 40px;

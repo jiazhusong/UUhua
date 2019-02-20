@@ -5,42 +5,41 @@
 */
 <template>
     <div>
-      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>首页</x-header>
+      <x-header style='text-align: center;background: rgb(17, 160, 0);line-height: 50px;color: #fff'>首页</x-header>
       <div :style='{"height":maxHei}' style='overflow: auto'>
         <div style=''>
           <swiper :list="list" auto style="width:100%;margin:0 auto;" height="180px" dots-class="custom-bottom" dots-position="center"></swiper>
         </div>
-        <div style='padding: 20px 30px'>
-          <div style='color: #fff;'>
-            <div :class='{"active":active==1}' style='background: rgb(165, 16, 16);height: 80px;display: flex;justify-content: space-around' @click='applyFun(1)'>
-              <div>
-                <countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="1500" :duration="2" ></countup>
-                <span>元</span>
-              </div>
-
-              <div style=';font-size: 24px'>
-                <!--<span style='font-size: 28px'>1500</span>-->
-                <br>
+        <div style='padding: 30px 30px'>
+          <div style='color: #fff;display: flex;justify-content: space-between'>
+            <div :class='{"active":active==1}' style='background: rgb(16, 76, 165);height: 140px;width: 48%' @click='applyFun(1)'>
+              <div style='font-size: 18px;display: flex;justify-content: space-between;line-height: 60px;padding: 0 5px'>
+                <!--<countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="1500" :duration="2" ></countup>-->
+                <span style='font-size: 22px;color: #a1f397'>￥1500 </span>
                 <span>7天</span>
               </div>
-            </div>
-            <div :class='{"active":active==2}' style='background: rgb(216, 122, 122);height: 80px;display: flex;justify-content: space-around;' @click='applyFun(2)'>
-              <div>
-                <countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="3000" :duration="2" ></countup>
-                <span>元</span>
+
+              <div style='margin-top: 40px;'>
+                <x-button type='primary' style='' @click.native='appliyMoney'>立即申请</x-button>
               </div>
-              <div style=';font-size: 24px'>
-                <!--<span style='font-size: 28px'>1500</span>-->
-                <br>
+            </div>
+            <div :class='{"active":active==2}' style='background: rgb(16, 76, 165);height: 120px;width: 48%' >
+              <div style='font-size: 18px;display: flex;justify-content: space-between;line-height: 60px;padding: 0 5px'>
+                <!--<countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="1500" :duration="2" ></countup>-->
+                <span style='font-size: 22px;color: #a1f397'>￥2000 </span>
                 <span>14天</span>
+              </div>
+
+              <div style='margin-top: 40px;'>
+                <x-button type='primary' style='' @click.native='applyFun(2)'>立即申请</x-button>
               </div>
             </div>
           </div>
 
-          <div style='margin-top: 50px;'>
-            <x-button type='primary' style='' @click.native='appliyMoney'>立即申请</x-button>
-          </div>
-          <div style='margin-top: 20px;color: hotpink;' >
+          <!--<div style='margin-top: 50px;'>-->
+            <!--<x-button type='primary' style='' @click.native='appliyMoney'>立即申请</x-button>-->
+          <!--</div>-->
+          <div style='margin-top: 30px;color: #54bd3a;' >
             注：点击申请即表示您已同意用户条款和隐私条款，本平台不对在校大学生开放
           </div>
         </div>
@@ -100,7 +99,7 @@
           applyFun(value){
             if(value==2){
               this.show=true;
-              this.msg="正常还款三次以上可申请"
+              this.msg="暂不开放"
             }
           },
           appliyMoney(){
@@ -131,7 +130,13 @@
 
 <style scoped lang='less'>
 .active{
-  box-shadow: 0 0 30px rgb(165, 16, 16);
-  border: 2px solid #ccc;
+  /*border: 2px solid #33a9b5;*/
+}
+  /deep/.weui-btn_primary{
+    background: #3dd2c4;
+    border-radius: 0px;
+  }
+/deep/.weui-btn_primary:not(.weui-btn_disabled):active{
+  background: #2db5a2;
 }
 </style>

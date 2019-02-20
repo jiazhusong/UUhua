@@ -10,9 +10,9 @@
           <i slot="icon" class='iconfont icon-shouye'></i>
           <span slot="label">首页</span>
         </tabbar-item>
-        <tabbar-item :selected="isSelect==2" link="/myinfo">
+        <tabbar-item :selected="isSelect==2" link="/recordQuery">
           <i slot="icon" class='iconfont icon-ziliaorenzheng'></i>
-          <span slot="label">资料认证</span>
+          <span slot="label">账单查询</span>
         </tabbar-item>
         <tabbar-item :selected="isSelect==3" link="/userlayout">
           <i slot="icon" class='iconfont icon-wode'></i>
@@ -40,7 +40,7 @@
           let pa=this.$route.path;
           if(pa=="/layout"){
             this.isSelect=1;
-          }else if(pa=="/myinfo"){
+          }else if(pa=="/recordQuery"){
             this.isSelect=2;
           }else {
             this.isSelect=3;

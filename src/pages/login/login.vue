@@ -1,8 +1,8 @@
 <template>
     <div>
-      <x-header  style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>咔咔钱包</x-header>
-      <div class='loginContent' style=''>
-        <div style='text-align: center;'><img src="../../../static/nianqian1logo.jpg" height='130' alt=""></div>
+      <!--<x-header  style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>咔咔钱包</x-header>-->
+      <div class='loginContent' >
+        <!--<div style='text-align: center;'><img src="../../../static/nianqian1logo.jpg" height='130' alt=""></div>-->
         <div style='padding: 0 30px'>
           <!--<group>-->
             <div class='inputList' >
@@ -24,12 +24,12 @@
             <!--<img slot="right-full-height" @click='imgClick' :src="imgUrl">-->
             <!--</x-input>-->
             <!--<div style='height:1px;background: #D9D9D9; '></div>-->
-            <x-button style='margin-top: 20px;border-radius: 20px' type="primary" @click.native='loginFun'>登录</x-button>
-            <x-button style='margin-top: 20px;border-radius: 20px' type="primary" @click.native='registerFun'>注册</x-button>
+            <x-button style='margin-top: 20px;border-radius: 5px' type="primary" @click.native='loginFun'>登录</x-button>
+            <!--<x-button style='margin-top: 20px;border-radius: 20px' type="primary" @click.native='registerFun'>注册</x-button>-->
           <!--</group>-->
           <div class='parent-box'>
             <!--<router-link  to='/register'>注册</router-link>-->
-            <router-link to='/resetpass'>忘记密码</router-link>
+            <!--<router-link to='/resetpass'>忘记密码</router-link>-->
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@
       mounted(){
         let vm=this;
         vm.maxHei=window.screen.height-100+"px";
-        document.querySelector(".loginContent").style.height=window.screen.height-50+"px";
+        // document.querySelector(".loginContent").style.height=window.screen.height-150+"px";
       // :left-options="{showBack: false}"
 
         // vm.$api.get("api/system/kaptcha",{responseType: 'arraybuffer'},function (data) {
@@ -148,8 +148,8 @@
   .loginContent{
     .inputList{
       line-height: 40px;
-      border: 1px solid #ccc;
-      border-radius: 20px;
+      border: 1px solid #04BE02;
+      border-radius: 5px;
       padding: 0 5px;
       margin-top: 20px;
       background: #fff;
