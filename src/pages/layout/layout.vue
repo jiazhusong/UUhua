@@ -21,8 +21,8 @@
 
               <div style=''>
                 <!--<span style='font-size: 28px'>1500</span>-->
-                <span>周期</span>
-                <span>7天</span>
+                <span>周期 7天</span>
+                <span style='margin-left: 20px;'>最快3分钟到账</span>
                 <x-button type='primary' style='margin-top:20px;border-bottom-left-radius: 70px;border-bottom-right-radius: 70px;width: 95%' @click.native='appliyMoney'>立即申请</x-button>
               </div>
             </div>
