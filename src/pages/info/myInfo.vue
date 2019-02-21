@@ -95,9 +95,9 @@
         </div>
         <div v-show='showNum==1' :style='{"max-height": maxHei}' style='overflow: auto'>
           <group>
-            <x-input label-width='100' title='银行：'  required  ref='bank' placeholder="请输入开户银行" v-model="bankObj.bank">
-            </x-input>
             <x-input label-width='100' title='银行账号：'  required ref='bankAccount' placeholder="请输入银行账号" v-model="bankObj.bankAccount">
+            </x-input>
+            <x-input label-width='100' title='银行：'  required  ref='bank' placeholder="请输入开户银行" v-model="bankObj.bank">
             </x-input>
             <x-input label-width='100' title='分行信息：'  required ref='fhxx' placeholder="请输入分行信息" v-model="bankObj.fhxx">
             </x-input>
@@ -157,6 +157,7 @@
   import { XInput,Group,XButton,XHeader,Cell,Tabbar,TabbarItem,ButtonTab, ButtonTabItem ,Radio,Alert,Loading , TransferDomDirective as TransferDom ,Toast,Step, StepItem   } from 'vux'
   // import Uploader from 'vux-uploader'
     import footerCom from './footerCom'
+  import BankTest from './bankTest'
     export default {
         name: "myInfo",
       directives: {
@@ -182,6 +183,17 @@
           StepItem
         },
         props: [],
+      watch:{
+          "bankObj.bankAccount"(newval,val){
+            let obj= BankTest(newval);
+            if(obj!='error'){
+              this.bankObj.bank=obj.bankName
+            }else {
+              this.bankObj.bank="";
+            }
+
+          }
+      },
         data() {
             return {
               images:[],
