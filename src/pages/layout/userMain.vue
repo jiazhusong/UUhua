@@ -7,7 +7,7 @@
     <div>
       <x-header style='text-align: center;background: rgb(94, 35, 237);line-height: 50px;color: #fff'>我的</x-header>
       <div style='margin-top: 20px;padding: 0 30px'>
-        <div style='border: 1px solid #ccc;padding: 20px 10px;box-shadow:0 0 10px #ccc;background: rgb(94, 92, 226);color: #fff '>
+        <div style='border: 1px solid #ccc;padding: 20px 10px;box-shadow:0 0 10px #ccc;background: url("../../../static/myBlue.jpg");color: #fff;background-size: cover '>
           <!--<img height='50' src="../../../static/user.png" alt="">-->
           <div style='display: inline-block;'>
             <span style=''>欢迎来到 <span style='font-size: 18px;'>零花卡</span></span>
