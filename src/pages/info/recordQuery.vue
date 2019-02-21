@@ -5,7 +5,7 @@
 */
 <template>
     <div>
-      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>账单查询</x-header>
+      <x-header style='text-align: center;background: rgb(94, 35, 237);line-height: 50px;color: #fff'>账单查询</x-header>
       <!--<div>逾期滞纳金：<span style='color: rgb(232, 48, 48)'>{{datas.length>0?datas[0].penalty:0}}</span></div>-->
       <div :style='{"height":maxHei}' style='overflow: auto' >
         <!--<div style='text-align: right'><x-button @click.native='showTipFun' type="primary" style='width: 100px;margin-right: 0;margin:5px;' :mini=true>账单延期</x-button></div>-->
@@ -50,12 +50,50 @@
           <!--</div>-->
 
         <!--</div>-->
-        <div v-if='list.length>0' style='font-size: 12px;color: #999;line-height: 40px;padding-left: 15px;'>注：还款的最后时间为还款日18:00，逾期将产生逾期滞纳金</div>
-        <form-preview v-if='list.length>0'  header-label="申请金额" header-value="¥1500" :body-items="list"  name="demo" class='formClass'></form-preview>
-        <div @click='showTipFun'  class="btn" data-clipboard-text="18771186061" data-clipboard-action="copy" style='text-align: center;color:#0BB20C;line-height: 50px; '>还款</div>
-        <!--<input type="text" id="taokouling" value='18771186061' hidden>-->
-        <p style='text-align: center' v-if='list.length==0'>暂无数据</p>
+        <div>
+          <flow>
+            <flow-state state="1" title="未审核" is-done></flow-state>
+            <flow-line is-done></flow-line>
 
+            <flow-state state="2" is-done>
+              <span slot="title">审核通过</span>
+            </flow-state>
+            <flow-line tip="进行中"></flow-line>
+
+            <flow-state state="3" title="结束"></flow-state>
+
+            <!--<flow-state state="4" title="$t('Done')"></flow-state>-->
+          </flow>
+        </div>
+        <div class='blueBg'>
+          <div style='display: flex;justify-content: space-between'>
+            <span>申请时间</span>
+            <span>{{list.submitDate}}</span>
+          </div>
+          <div style='display: flex;justify-content: space-between'>
+            <span>还款时间</span>
+            <span>{{list.billRepaymentTime}}</span>
+          </div>
+         <div style='display: flex;justify-content: space-around;line-height: 40px;'>
+           <div style='color: #d009ca;font-size: 24px'>
+              <span >￥1500</span>
+             <br>
+             申请金额
+           </div>
+           <div style='color: #d009ca;font-size: 24px'>
+             <span >￥{{list.penalty}}</span>
+             <br>
+             滞纳金
+           </div>
+         </div>
+          <div>
+            <div @click='showTipFun'  class="btn" data-clipboard-text="13477524242" data-clipboard-action="copy" style='text-align: center;color:#FFF;line-height: 50px;background: #1d0da7;'>还款</div>
+          </div>
+        </div>
+
+        <!--<input type="text" id="taokouling" value='18771186061' hidden>-->
+        <p style='text-align: center' v-if='list.submitDate==""'>暂无数据</p>
+        <div v-if='list.submitDate!=""' style='font-size: 12px;color: #999;line-height: 40px;padding-left: 15px;'>注：还款的最后时间为还款日18:00，逾期将产生逾期滞纳金</div>
       </div>
       <toast v-model="showPositionValue" type="text" :time="1000" is-show-mask text="" position="middle">{{popmsg}}</toast>
       <footerCom></footerCom>
@@ -66,9 +104,9 @@
         <alert v-model="show" >
           <div style='line-height: 24px'>
             <div >还款账号已复制</div>
-            <div>请自行还款到公司企业账户</div>
-            <div>支付宝：（杜业武）<span style='color: red'>18771186061</span></div>
-            <div>还款时间截止账单日18:00，还款时请添加备注<span style='color: red'>“姓名+手机号”</span>，系统会在一小时内自动处理</div>
+            <div>请自行还款到</div>
+            <div>支付宝：（吕培培）<span style='color: #0014ff'>13477524242</span></div>
+            <div>还款时间截止账单日18:00，还款时请添加备注<span style='color: #0014ff'>“姓名+手机号”</span>，逾期将产生滞纳金。</div>
 
           </div>
         </alert>
@@ -77,7 +115,7 @@
 </template>
 
 <script>
-  import {XHeader,Tabbar,TabbarItem ,XTable ,Toast,Loading,TransferDomDirective as TransferDom ,Alert,XButton,FormPreview,Cell} from 'vux'
+  import {XHeader,Tabbar,TabbarItem ,XTable ,Toast,Loading,TransferDomDirective as TransferDom ,Alert,XButton,FormPreview,Cell,Flow, FlowState, FlowLine} from 'vux'
   import footerCom from './footerCom'
   import Clipboard from 'clipboard';
     export default {
@@ -96,7 +134,10 @@
           XButton,
           footerCom,
           FormPreview,
-          Cell
+          Cell,
+          Flow,
+          FlowState,
+          FlowLine
         },
         props: [],
       filters:{
@@ -121,7 +162,11 @@
               show:false,
               msg:"",
               infoShow:false,
-              list:[],
+              list:{
+                submitDate:"",
+                billRepaymentTime:"",
+                penalty:"",
+              },
               // buttonsArr:[
               //   {
               //     style: 'primary',
@@ -182,19 +227,22 @@
             vm.$vux.loading.hide();
             if(data.code==20){
               vm.tipshow=true;
-              vm.list=[{
-                label: '申请时间',
-                value: data.data.submitDate.slice(0,10)
-              },{
-                label: '还款时间',
-                value: data.data.billRepaymentTime?data.data.billRepaymentTime.substr(0,10):""
-              },{
-                label: '状态',
-                value: vm.statusFilters(data.data.status)
-              },{
-                label: '逾期滞纳金',
-                value: data.data.penalty?data.data.penalty:0
-              }]
+              vm.list.submitDate=data.data.submitDate.slice(0,10);
+              vm.list.billRepaymentTime=data.data.billRepaymentTime?data.data.billRepaymentTime.substr(0,10):"";
+              vm.list.penalty=data.data.penalty?data.data.penalty:0;
+              // vm.list=[{
+              //   label: '申请时间',
+              //   value: data.data.submitDate.slice(0,10)
+              // },{
+              //   label: '还款时间',
+              //   value: data.data.billRepaymentTime?data.data.billRepaymentTime.substr(0,10):""
+              // },{
+              //   label: '状态',
+              //   value: vm.statusFilters(data.data.status)
+              // },{
+              //   label: '逾期滞纳金',
+              //   value: data.data.penalty?data.data.penalty:0
+              // }]
             }else if(data.code==401){
               sessionStorage.clear();
               vm.$router.push({
@@ -250,5 +298,11 @@
 
   .weui-form-preview__btn_primary{
     color: #dc0b0b!important;
+  }
+  .blueBg{
+    height: 200px;
+    color: #fff;
+    background: url("../../../static/bluebg.jpg");
+    line-height: 40px;
   }
 </style>

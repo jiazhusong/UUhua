@@ -1,12 +1,12 @@
 <template>
     <div>
-      <x-header  style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>咔咔钱包</x-header>
+      <x-header  style='text-align: center;background: rgb(94, 35, 237);line-height: 50px;color: #fff'>零花卡</x-header>
       <div class='loginContent' style=''>
-        <div style='text-align: center;'><img src="../../../static/nianqian1logo.jpg" height='130' alt=""></div>
+        <div style='text-align: center;'><img src="../../../static/lhklogo.png" height='130' alt=""></div>
         <div style='padding: 0 30px'>
           <!--<group>-->
             <div class='inputList' >
-              <span class='inputTitle' >用户名：</span>
+              <span class='inputTitle' >账号：</span>
               <input class='inputClass'  v-model="useName" type="text" placeholder='请输入用户名' style='height: 30px;'>
             </div>
             <div class='inputList'>
@@ -24,12 +24,17 @@
             <!--<img slot="right-full-height" @click='imgClick' :src="imgUrl">-->
             <!--</x-input>-->
             <!--<div style='height:1px;background: #D9D9D9; '></div>-->
-            <x-button style='margin-top: 20px;border-radius: 20px' type="primary" @click.native='loginFun'>登录</x-button>
-            <x-button style='margin-top: 20px;border-radius: 20px' type="primary" @click.native='registerFun'>注册</x-button>
+            <x-button style='margin-top: 20px;border-radius: 5px' type="primary" @click.native='loginFun'>登录</x-button>
+          <!--<x-button style='margin-top: 20px;border-radius: 5px' type="primary" @click.native='registerFun'>注册</x-button>-->
           <!--</group>-->
           <div class='parent-box'>
             <!--<router-link  to='/register'>注册</router-link>-->
             <router-link to='/resetpass'>忘记密码</router-link>
+          </div>
+          <div style='text-align: center;margin-top: 30px;'>
+            没有账号？
+            <router-link  to='/register'>立即注册</router-link>
+
           </div>
         </div>
       </div>
@@ -146,10 +151,12 @@
   margin-top: 10px;
 }
   .loginContent{
+    background: url("../../../static/loginbg.jpg");
+    background-size: cover;
     .inputList{
       line-height: 40px;
-      border: 1px solid #ccc;
-      border-radius: 20px;
+      border-bottom: 1px solid #ccc;
+      border-radius: 0;
       padding: 0 5px;
       margin-top: 20px;
       background: #fff;

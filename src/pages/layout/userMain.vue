@@ -5,12 +5,12 @@
 */
 <template>
     <div>
-      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>咔咔钱包</x-header>
+      <x-header style='text-align: center;background: rgb(94, 35, 237);line-height: 50px;color: #fff'>我的</x-header>
       <div style='margin-top: 20px;padding: 0 30px'>
-        <div style='border: 1px solid #ccc;padding: 20px 10px;box-shadow:0 0 10px #ccc '>
-          <img height='50' src="../../../static/user.png" alt="">
-          <div style='display: inline-block'>
-            <span style=''>欢迎来到 <span style='font-size: 18px;color: #dc0b0b'>咔咔钱包</span></span>
+        <div style='border: 1px solid #ccc;padding: 20px 10px;box-shadow:0 0 10px #ccc;background: rgb(94, 92, 226);color: #fff '>
+          <!--<img height='50' src="../../../static/user.png" alt="">-->
+          <div style='display: inline-block;'>
+            <span style=''>欢迎来到 <span style='font-size: 18px;'>零花卡</span></span>
             <br/>
             <span style=''>账号：</span>
             <span style=''>{{account}}</span>
@@ -130,12 +130,12 @@
 
 <style scoped lang='less'>
 .router_li{
-  color: #dc0b0b;
-  background: pink;
+  color: #333;
+  background: #c1c0ff;
   width: 100%;
   display: inline-block;
   margin-top: 10px;
-  border-radius: 20px;
+  border-radius: 0;
   height: 40px;
   text-align: center;
   line-height: 40px;

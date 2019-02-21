@@ -5,14 +5,19 @@
 */
 <template>
     <div >
-      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>资料认证</x-header>
+      <x-header style='text-align: center;background:rgb(94, 35, 237);line-height: 50px;color: #fff'>资料认证</x-header>
       <div  style='margin-bottom: 60px;margin-top: 10px; '>
-        <div>
-          <button-tab v-model="showNum">
-            <button-tab-item  @on-item-click="onItemClick()">基本信息</button-tab-item>
-            <button-tab-item @on-item-click="onItemClick()">账户信息</button-tab-item>
-            <button-tab-item @on-item-click="onItemClick()">地址</button-tab-item>
-          </button-tab>
+        <div style='padding: 0 10px;'>
+          <step v-model="showNum" background-color='#fbf9fe'>
+            <step-item title="基本信息" ></step-item>
+            <step-item title="账户信息" ></step-item>
+            <step-item title="地址" ></step-item>
+          </step>
+          <!--<button-tab v-model="showNum">-->
+            <!--<button-tab-item  @on-item-click="onItemClick()">基本信息</button-tab-item>-->
+            <!--<button-tab-item @on-item-click="onItemClick()">账户信息</button-tab-item>-->
+            <!--<button-tab-item @on-item-click="onItemClick()">地址</button-tab-item>-->
+          <!--</button-tab>-->
         </div>
         <div v-show='showNum==0' :style='{"max-height": maxHei}' style='overflow: auto'>
           <group ref='groups'>
@@ -85,7 +90,7 @@
               <!--@add-image="addImageMethod"-->
 
             <!--&gt;</uploader>-->
-            <x-button style='margin-top: 20px;' @click.native='basicSubmit' type="primary" >保存</x-button>
+            <x-button style='margin-top: 20px;' @click.native='basicSubmit' type="primary" >保存并下一步</x-button>
           </group>
         </div>
         <div v-show='showNum==1' :style='{"max-height": maxHei}' style='overflow: auto'>
@@ -105,7 +110,7 @@
             <x-input label-width='100' title='淘宝密码：' required ref='tbmm'  placeholder="请输入淘宝密码" v-model="bankObj.tbmm">
             </x-input>
             <div style='height:1px;background: #D9D9D9; '></div>
-            <x-button style='margin-top: 20px;' type="primary" @click.native='bankSubmit'>保存</x-button>
+            <x-button style='margin-top: 20px;' type="primary" @click.native='bankSubmit'>保存并下一步</x-button>
           </group>
         </div>
         <div v-show='showNum==2' :style='{"max-height": maxHei}' style='overflow: auto'>
@@ -149,7 +154,7 @@
 </template>
 
 <script>
-  import { XInput,Group,XButton,XHeader,Cell,Tabbar,TabbarItem,ButtonTab, ButtonTabItem ,Radio,Alert,Loading , TransferDomDirective as TransferDom ,Toast   } from 'vux'
+  import { XInput,Group,XButton,XHeader,Cell,Tabbar,TabbarItem,ButtonTab, ButtonTabItem ,Radio,Alert,Loading , TransferDomDirective as TransferDom ,Toast,Step, StepItem   } from 'vux'
   // import Uploader from 'vux-uploader'
     import footerCom from './footerCom'
     export default {
@@ -172,7 +177,9 @@
           Alert,
           Toast,
           Loading,
-          footerCom
+          footerCom,
+          Step,
+          StepItem
         },
         props: [],
         data() {
@@ -327,6 +334,7 @@
               if(data.code==20){
                 vm.showPositionValue=true;
                 vm.popMsg="操作成功";
+                vm.showNum++;
               }else if(data.code==401){
                 sessionStorage.clear();
                 vm.$router.push({
@@ -336,6 +344,7 @@
               }else {
                 vm.show=true;
                 vm.msg=data.message
+
               }
             })
           },
@@ -361,6 +370,7 @@
               if(data.code==20){
                 vm.showPositionValue=true;
                 vm.popMsg="操作成功";
+                vm.showNum++;
               }else if(data.code==401){
                 sessionStorage.clear();
                 vm.$router.push({
@@ -369,7 +379,8 @@
 
               }else {
                 vm.show=true;
-                vm.msg=data.message
+                vm.msg=data.message;
+
               }
               }
             )

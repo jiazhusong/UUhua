@@ -5,7 +5,7 @@
 */
 <template>
   <div>
-    <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>申请记录</x-header>
+    <x-header style='text-align: center;background: rgb(94, 35, 237);line-height: 50px;color: #fff'>申请记录</x-header>
     <div :style='{"height":maxHei}' style='overflow: auto;margin-bottom: 60px; '>
 
       <!--<x-table :cell-bordered="false"  style="background-color:#fff;">-->
@@ -29,24 +29,21 @@
 
         <!--</tbody>-->
       <!--</x-table>-->
-      <div style='display: flex;border: 1px solid #ccc;box-shadow: 0 0 10px #ccc;padding-left: 10px;margin-top: 5px;' v-for='item in datas'>
-
-      <div style='width: 50%;'>
-      <span>申请时间：<span>{{item.submitDate.slice(0,10)}}</span></span>
-      <br>
-      <!--<span>状态<br><span>未审核</span></span>-->
-      <span>还款时间：<span>{{item.billRepaymentTime?item.billRepaymentTime.substr(0,10):""}}</span></span>
-      <br>
-      <span>状态：<span style='color: #dc0b0b'>{{item.status|statusFun}}</span></span>
-      <br>
-      </div>
-      <div style='width: 50%;padding-left: 10px;'>
-      <span>申请金额：<span style='color: #dc0b0b'>{{item.bill}}</span></span>
-      <br>
-      <span>周期：<span>{{item.loanDay}}天</span></span>
-      <br>
-      <!--<x-button type="primary" style='width: 100px;margin-right: 0;margin:5px;' :mini=true>账单分解</x-button>-->
-      </div>
+      <div style='display: flex;border: 1px solid #ccc;box-shadow: 0 0 10px #ccc;padding-left: 10px;margin-top: 5px;background: url("../../../static/applyBlue.jpeg");background-size: cover;' v-for='item in datas'>
+        <div style='width: 50%;padding-left: 10px;'>
+          <span>申请金额：<span style='color: #c1ef39'>{{item.bill}}元</span></span>
+          <br>
+          <span>周期：<span>{{item.loanDay}}天</span></span>
+          <br>
+          <span>申请时间：<span>{{item.submitDate.slice(0,10)}}</span></span>
+          <br>
+          <!--<span>状态<br><span>未审核</span></span>-->
+          <span>还款时间：<span>{{item.billRepaymentTime?item.billRepaymentTime.substr(0,10):""}}</span></span>
+          <!--<x-button type="primary" style='width: 100px;margin-right: 0;margin:5px;' :mini=true>账单分解</x-button>-->
+        </div>
+        <div style='width: 50%;'>
+        <span style='color: #c1ef39'> {{item.status|statusFun}}</span>
+        </div>
 
       </div>
       <p style='text-align: center' v-if='datas.length==0&&tipshow==true'>暂无数据</p>
@@ -135,5 +132,7 @@
 </script>
 
 <style scoped lang='less'>
-
+  .vux-x-icon {
+    fill: #5b0bdc;
+  }
 </style>

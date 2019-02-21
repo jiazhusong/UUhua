@@ -5,42 +5,44 @@
 */
 <template>
     <div>
-      <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>首页</x-header>
+      <x-header style='text-align: center;background: rgb(94, 35, 237);line-height: 50px;color: #fff'>首页</x-header>
       <div :style='{"height":maxHei}' style='overflow: auto'>
         <div style=''>
           <swiper :list="list" auto style="width:100%;margin:0 auto;" height="180px" dots-class="custom-bottom" dots-position="center"></swiper>
         </div>
         <div style='padding: 20px 30px'>
           <div style='color: #fff;'>
-            <div :class='{"active":active==1}' style='background: rgb(165, 16, 16);height: 80px;display: flex;justify-content: space-around' @click='applyFun(1)'>
+            <div :class='{"active":active==1}' style='background: #6c27a0;height: 140px;border-radius: 70px;text-align: center' @click='applyFun(1)'>
               <div>
-                <countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="1500" :duration="2" ></countup>
+                <span>借款金额：</span>
+                <countup style='color: #00ffe7;font-size: 28px' :start-val="1" :end-val="1500" :duration="2" ></countup>
                 <span>元</span>
               </div>
 
-              <div style=';font-size: 24px'>
+              <div style=''>
                 <!--<span style='font-size: 28px'>1500</span>-->
-                <br>
+                <span>周期</span>
                 <span>7天</span>
+                <x-button type='primary' style='margin-top:20px;border-bottom-left-radius: 70px;border-bottom-right-radius: 70px;width: 95%' @click.native='appliyMoney'>立即申请</x-button>
               </div>
             </div>
-            <div :class='{"active":active==2}' style='background: rgb(216, 122, 122);height: 80px;display: flex;justify-content: space-around;' @click='applyFun(2)'>
-              <div>
-                <countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="3000" :duration="2" ></countup>
-                <span>元</span>
-              </div>
-              <div style=';font-size: 24px'>
-                <!--<span style='font-size: 28px'>1500</span>-->
-                <br>
-                <span>14天</span>
-              </div>
-            </div>
+            <!--<div :class='{"active":active==2}' style='background: rgb(216, 122, 122);height: 80px;display: flex;justify-content: space-around;' @click='applyFun(2)'>-->
+              <!--<div>-->
+                <!--<countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="3000" :duration="2" ></countup>-->
+                <!--<span>元</span>-->
+              <!--</div>-->
+              <!--<div style=';font-size: 24px'>-->
+                <!--&lt;!&ndash;<span style='font-size: 28px'>1500</span>&ndash;&gt;-->
+                <!--<br>-->
+                <!--<span>14天</span>-->
+              <!--</div>-->
+            <!--</div>-->
           </div>
 
           <div style='margin-top: 50px;'>
-            <x-button type='primary' style='' @click.native='appliyMoney'>立即申请</x-button>
+            <!--<x-button type='primary' style='' @click.native='appliyMoney'>立即申请</x-button>-->
           </div>
-          <div style='margin-top: 20px;color: hotpink;' >
+          <div style='margin-top: 20px;color: #5b0bdc;' >
             注：点击申请即表示您已同意用户条款和隐私条款，本平台不对在校大学生开放
           </div>
         </div>
@@ -131,7 +133,7 @@
 
 <style scoped lang='less'>
 .active{
-  box-shadow: 0 0 30px rgb(165, 16, 16);
-  border: 2px solid #ccc;
+  box-shadow: 0 0 30px #3c10a5;
+  border: 2px solid #5dc55b;
 }
 </style>

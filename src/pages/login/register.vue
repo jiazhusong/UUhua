@@ -5,10 +5,10 @@
 */
 <template>
   <div class='apps'>
-    <x-header style='text-align: center;background: rgb(237, 72, 35);line-height: 50px;color: #fff'>咔咔钱包</x-header>
+    <x-header style='text-align: center;background: rgb(94, 35, 237);line-height: 50px;color: #fff'>零花卡</x-header>
     <div class='loginContent'>
-      <div style='text-align: center'><img height='100' src="../../../static/register.png" alt=""></div>
-      <div style='padding: 0 30px'>
+      <!--<div style='text-align: center'><img height='100' src="../../../static/register.png" alt=""></div>-->
+      <div style='padding: 0 30px;padding-top: 30px;'>
         <!--<group>-->
           <!--<x-input title="用户名：" placeholder="请输入手机号" ref='phoneNum' :max=11 :show-clear=false is-type='china-mobile' v-model="phoneNum" required>-->
             <!--<i slot="label" style="padding-right:10px;display:block;width: 24px;height:24px"  class="iconfont icon-shoujihao"  ></i>-->
@@ -32,7 +32,7 @@
           <!--<div style='height:1px;background: #D9D9D9; '></div>-->
           <!--<x-button style='margin-top: 20px;border-radius: 20px' type="primary" @click.native='registerFun'>注册</x-button>-->
         <!--</group>-->
-        <div class='inputList' >
+        <div class='inputList firstInput' >
           <span class='inputTitle' >用户名：</span>
           <input class='inputClass'  v-model="phoneNum" type="text" maxlength="11" placeholder='请输入手机号' style='height: 30px;' >
         </div>
@@ -101,7 +101,7 @@
         },
         mounted() {
           let vm=this;
-
+          document.querySelector(".loginContent").style.height=window.screen.height-50+"px";
         },
         methods: {
           // imgFun(){
@@ -213,10 +213,12 @@
 <style scoped lang='less'>
 
   .loginContent{
+    background: url("../../../static/loginbg.jpg");
+    background-size: cover;
     .inputList{
       line-height: 40px;
-      border: 1px solid #ccc;
-      border-radius: 20px;
+      border-bottom: 1px solid #ccc;
+      border-radius: 0;
       padding: 0 5px;
       margin-top: 20px;
       background: #fff;
@@ -236,6 +238,9 @@
         width: 90px;
         text-align: right;
       }
+    }
+    .firstInput{
+      margin-top: 0;
     }
   }
 /deep/.weui-btn_disabled.weui-btn_primary{
