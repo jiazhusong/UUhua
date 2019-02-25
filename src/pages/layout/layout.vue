@@ -104,7 +104,7 @@
           },
           appliyMoney(){
             let vm=this;
-            vm.$api.post("api/bill/loan/1200","",function ({data}) {
+            vm.$api.post("api/bill/loan/1500","",function ({data}) {
               if(data.code==20){
                 vm.show=true;
                 vm.msg="申请成功"
