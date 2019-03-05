@@ -188,7 +188,7 @@
 
 <style scoped lang='less'>
   /deep/.weui-btn_disabled.weui-btn_primary{
-    background-color:#E22122;
+    background-color:rgb(17, 160, 0);
   }
   .loginContent{
     .inputList{
