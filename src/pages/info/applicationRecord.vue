@@ -30,7 +30,7 @@
         <!--</tbody>-->
       <!--</x-table>-->
       <div style='display: flex;border: 1px solid #ccc;box-shadow: 0 0 10px #ccc;padding-left: 10px;margin-top: 5px;background: url("../../../static/applyBlue.jpeg");background-size: cover;' v-for='item in datas'>
-        <div style='width: 50%;padding-left: 10px;'>
+        <div style='width: 70%;padding-left: 10px;'>
           <span>申请金额：<span style='color: #c1ef39'>{{item.bill}}元</span></span>
           <br>
           <span>周期：<span>{{item.loanDay}}天</span></span>
@@ -41,7 +41,7 @@
           <span>还款时间：<span>{{item.billRepaymentTime?item.billRepaymentTime.substr(0,10):""}}</span></span>
           <!--<x-button type="primary" style='width: 100px;margin-right: 0;margin:5px;' :mini=true>账单分解</x-button>-->
         </div>
-        <div style='width: 50%;'>
+        <div style='width: 30%;'>
         <span style='color: #c1ef39'> {{item.status|statusFun}}</span>
         </div>
 
