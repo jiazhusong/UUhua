@@ -17,7 +17,7 @@
             <x-input title='家庭地址：'  placeholder="请输入家庭地址" ref='familyAddress' required v-model="workObj.familyAddress">
             </x-input>
             <div style='height:1px;background: #D9D9D9; '></div>
-            <x-button style='margin-top: 20px;' type="primary" @click.native='bankSubmit'>保存</x-button>
+            <x-button style='margin-top: 20px;' type="primary" @click.native='workSubmit'>保存</x-button>
           </group>
         </div>
       </div>
@@ -174,6 +174,10 @@
                 vm.msg=data.message
               }
             })
+          },
+          onHide () {
+          },
+          onShow () {
           },
         }
     }
