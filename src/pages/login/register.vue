@@ -244,7 +244,7 @@
     }
   }
 /deep/.weui-btn_disabled.weui-btn_primary{
-  background-color:#E22122;
+  background-color:rgb(94, 35, 237);
 }
 
 </style>
