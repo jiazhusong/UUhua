@@ -50,7 +50,7 @@
           <!--</div>-->
 
         <!--</div>-->
-        <div>
+        <div v-if='list.submitDate!=""'>
           <flow>
             <flow-state state="1" title="未审核" is-done></flow-state>
             <flow-line is-done></flow-line>
@@ -65,7 +65,7 @@
             <!--<flow-state state="4" title="$t('Done')"></flow-state>-->
           </flow>
         </div>
-        <div class='blueBg'>
+        <div class='blueBg' v-if='list.submitDate!=""'>
           <div style='display: flex;justify-content: space-between'>
             <span>申请时间</span>
             <span>{{list.submitDate}}</span>
