@@ -10,19 +10,11 @@
       <div  style='margin-bottom: 60px; '>
         <div  :style='{"max-height": maxHei}' style='overflow: auto'>
           <group>
-            <x-input label-width='100' title='银行：'  required  ref='bank' placeholder="请输入开户银行" v-model="bankObj.bank">
+            <x-input title='工作单位：'  placeholder="请输入工作单位" ref='workUnit' required v-model="workObj.workUnit">
             </x-input>
-            <x-input label-width='100' title='银行账号：'  required ref='bankAccount' placeholder="请输入银行账号" v-model="bankObj.bankAccount">
+            <x-input title='单位地址：'  placeholder="请输入单位地址" ref='workAddress' required v-model="workObj.workAddress">
             </x-input>
-            <x-input label-width='100' title='分行信息：'  required ref='fhxx' placeholder="请输入分行信息" v-model="bankObj.fhxx">
-            </x-input>
-            <x-input label-width='100' title='支付宝账号：' required ref='zfbzh' placeholder="请输入支付宝账号" v-model="bankObj.zfbzh">
-            </x-input>
-            <x-input label-width='100' title='支付宝密码：'  required ref='zfbmm' placeholder="请输入支付宝密码" v-model="bankObj.zfbmm">
-            </x-input>
-            <x-input label-width='100' title='淘宝账号：'  required ref='tbzh' placeholder="请输入淘宝账号" v-model="bankObj.tbzh">
-            </x-input>
-            <x-input label-width='100' title='淘宝密码：' required ref='tbmm'  placeholder="请输入淘宝密码" v-model="bankObj.tbmm">
+            <x-input title='家庭地址：'  placeholder="请输入家庭地址" ref='familyAddress' required v-model="workObj.familyAddress">
             </x-input>
             <div style='height:1px;background: #D9D9D9; '></div>
             <x-button style='margin-top: 20px;' type="primary" @click.native='bankSubmit'>保存</x-button>
