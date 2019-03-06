@@ -8,7 +8,6 @@
       <x-header style='text-align: center;background:rgb(17, 160, 0);line-height: 50px;color: #fff'>七彩宝</x-header>
       <div style='margin-top: 20px;padding: 0 30px'>
         <div style='border: 1px solid #ccc;padding: 20px 10px;box-shadow:0 0 10px #ccc '>
-          <!--<img height='50' src="../../../static/user.png" alt="">-->
           <div style='display: inline-block'>
             <span style=''>欢迎来到 <span style='font-size: 18px;color: rgb(17, 160, 0)'>七彩宝</span></span>
             <br/>

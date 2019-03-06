@@ -81,14 +81,15 @@
               list:[
                 {
                 url: 'javascript:',
-                img: '../../../static/time1.jpg',
+                img: '../../../static/timg1.png',
                 title: ''
               },
                 {
                 url: 'javascript:',
-                img: '../../../static/time2.jpg',
-                title: '',
-              }]
+                img: '../../../static/timg2.jpg',
+                title: ''
+              },
+                ]
             }
         },
         mounted() {
