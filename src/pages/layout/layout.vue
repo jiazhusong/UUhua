@@ -15,7 +15,7 @@
             <div :class='{"active":active==1}' style='background: rgb(16, 76, 165);height: 140px;width: 48%' @click='applyFun(1)'>
               <div style='font-size: 18px;display: flex;justify-content: space-between;line-height: 60px;padding: 0 5px'>
                 <!--<countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="1500" :duration="2" ></countup>-->
-                <span style='font-size: 22px;color: #a1f397'>￥1500 </span>
+                <span style='font-size: 22px;color: #a1f397'>￥1300 </span>
                 <span>7天</span>
               </div>
 
