@@ -160,6 +160,7 @@
   import BankTest from './bankTest'
     export default {
         name: "myInfo",
+
       directives: {
         TransferDom
       },
