@@ -50,7 +50,7 @@
           <!--</div>-->
 
         <!--</div>-->
-        <div v-if='list.length>0' style='font-size: 12px;color: #999;line-height: 40px;padding-left: 15px;'>注：还款的最后时间为还款日18:00，逾期将产生逾期滞纳金</div>
+        <div v-if='list.length>0' style='font-size: 12px;color: #999;line-height: 40px;padding-left: 15px;'>注：还款的最后时间为还款日22:00，逾期将产生逾期滞纳金</div>
         <form-preview v-if='list.length>0'  header-label="申请金额" header-value="¥1500" :body-items="list"  name="demo" class='formClass'></form-preview>
         <div @click='showTipFun'  class="btn" data-clipboard-text="18771186061" data-clipboard-action="copy" style='text-align: center;color:#0BB20C;line-height: 50px; '>还款</div>
         <!--<input type="text" id="taokouling" value='18771186061' hidden>-->
@@ -68,7 +68,7 @@
             <div >还款账号已复制</div>
             <div>请自行还款到公司企业账户</div>
             <div>支付宝：（杜业武）<span style='color: red'>18771186061</span></div>
-            <div>还款时间截止账单日18:00，还款时请添加备注<span style='color: red'>“姓名+手机号”</span>，系统会在一小时内自动处理</div>
+            <div>还款时间截止账单日22:00，还款时请添加备注<span style='color: red'>“姓名+手机号”</span>，系统会在一小时内自动处理</div>
 
           </div>
         </alert>
