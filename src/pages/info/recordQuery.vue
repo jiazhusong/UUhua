@@ -21,7 +21,7 @@
             </div>
             <!--<div style='width: 1px;background: #0BB20C;'></div>-->
             <div style='width: 48%;text-align: center;padding: 20px 5px'>
-              <div style='color:#1AAD19;font-size: 22px;display: flex;justify-content: space-between;line-height: 60px;'><span style='font-size: 26px'>￥1500 </span><span>7天</span></div>
+              <div style='color:#1AAD19;font-size: 22px;display: flex;justify-content: space-between;line-height: 60px;'><span style='font-size: 26px'>￥1300 </span><span>7天</span></div>
               <!--<x-button type='primary' @click.native='showTipFun'>还款</x-button>-->
             </div>
           </div>
