@@ -187,6 +187,8 @@
       watch:{
           "bankObj.bankAccount"(newval,val){
             let obj= BankTest(newval);
+            console.log(obj);
+
             if(obj!='error'){
               this.bankObj.bank=obj.bankName
             }

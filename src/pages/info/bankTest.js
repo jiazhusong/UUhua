@@ -659,7 +659,7 @@ function bankCardAttribution(bankCard){
       reg: /^(621267|623063)\d{12}$/g,
       cardType: "DC"
     }, {
-      reg: /^(620043|)\d{12}$/g,
+      reg: /^(620043)\d{12}$/g,
       cardType: "PC"
     }]
   }, {
