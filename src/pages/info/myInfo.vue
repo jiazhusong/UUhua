@@ -250,6 +250,8 @@
           vm.$api.get("api/user/bank","",function ({data}) {
             if(data.code==20){
               vm.bankObj=data.data
+              delete vm.bankObj.zfbmm;
+              delete vm.bankObj.tbmm;
             }else {
 
             }
