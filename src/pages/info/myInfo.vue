@@ -189,9 +189,10 @@
             let obj= BankTest(newval);
             if(obj!='error'){
               this.bankObj.bank=obj.bankName
-            }else {
-              this.bankObj.bank="";
             }
+            // else {
+            //   this.bankObj.bank="";
+            // }
 
           }
       },
