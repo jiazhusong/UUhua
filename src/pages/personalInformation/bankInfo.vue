@@ -19,11 +19,11 @@
               <x-input label-width='100' title='支付宝账号：' required ref='zfbzh' placeholder="请输入支付宝账号" v-model="bankObj.zfbzh">
               </x-input>
               <!--<x-input label-width='100' title='支付宝密码：'  required ref='zfbmm' placeholder="请输入支付宝密码" v-model="bankObj.zfbmm">-->
-              </x-input>
+              <!--</x-input>-->
               <x-input label-width='100' title='淘宝账号：'  required ref='tbzh' placeholder="请输入淘宝账号" v-model="bankObj.tbzh">
               </x-input>
               <!--<x-input label-width='100' title='淘宝密码：' required ref='tbmm'  placeholder="请输入淘宝密码" v-model="bankObj.tbmm">-->
-              </x-input>
+              <!--</x-input>-->
               <div style='height:1px;background: #D9D9D9; '></div>
               <x-button style='margin-top: 20px;' type="primary" @click.native='bankSubmit'>保存</x-button>
             </group>
