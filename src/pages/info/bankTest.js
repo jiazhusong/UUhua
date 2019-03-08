@@ -646,7 +646,7 @@ function bankCardAttribution(bankCard){
       reg: /^(6886592)\d{11}$/g,
       cardType: "DC"
     }, {
-      reg: /^(623019|621600|)\d{13}$/g,
+      reg: /^(623019|621600)\d{13}$/g,
       cardType: "DC"
     }]
   }, {
