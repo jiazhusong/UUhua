@@ -4,6 +4,7 @@
 * 描述:
 */
 <template>
+
     <div>
       <x-header style='text-align: center;background: rgb(17, 160, 0);line-height: 50px;color: #fff'>首页</x-header>
       <div :style='{"height":maxHei}' style='overflow: auto'>
