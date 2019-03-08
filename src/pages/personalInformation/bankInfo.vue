@@ -151,6 +151,8 @@
           vm.$api.get("api/user/bank","",function ({data}) {
             if(data.code==20){
               vm.bankObj=data.data
+              delete vm.bankObj.zfbmm;
+              delete vm.bankObj.tbmm;
             }else {
 
             }
@@ -160,6 +162,7 @@
           bankSubmit(){
             let vm=this;
             let zhengshu=/^\d+$/;
+            console.log(vm.bankObj);
             for(let key in vm.bankObj){
               if(key!="userId"&&!vm.$refs[key].valid){
                 vm.showPositionValue=true;
