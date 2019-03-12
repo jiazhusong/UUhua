@@ -14,7 +14,7 @@
           <div style='color: #fff;'>
             <div :class='{"active":active==1}' style='background: rgb(165, 16, 16);height: 80px;display: flex;justify-content: space-around' @click='applyFun(1)'>
               <div>
-                <countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="1500" :duration="2" ></countup>
+                <countup style='color: rgb(0, 255, 92);font-size: 28px' :start-val="1" :end-val="2000" :duration="2" ></countup>
                 <span>元</span>
               </div>
 
